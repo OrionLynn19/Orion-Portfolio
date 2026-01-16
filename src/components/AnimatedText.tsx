@@ -1,6 +1,6 @@
-"use client" ; 
+"use client";
 import React from "react";
-import {motion, stagger} from 'framer-motion' ; 
+import { motion } from 'framer-motion';
 
 interface AnimatedTextProps { 
     text: string; 
@@ -8,45 +8,58 @@ interface AnimatedTextProps {
 }
 
 const quote = {
-    initial : {
-        opacity : 1 , 
+    initial: {
+        opacity: 1,
     }, 
-    animate : {
-        opacity : 1 ,
+    animate: {
+        opacity: 1,
         transition: {
-            delay : 0.5,
-            staggerChildren :  0.08 , 
+            delay: 0.5,
+            staggerChildren: 0.08,
         }
     }
 }
 
 const singleWord = {
-    initial : {
-        opacity : 0 , 
-        y: 50 , 
+    initial: {
+        opacity: 0,
+        x: -75, 
+        y: 0,
     }, 
-    animate : {
-        opacity : 1 ,
-        y: 0 ,
+    animate: {
+        opacity: 1,
+        x: 0,
+        y: 0,
         transition: {
-            duration : 1 , 
+            duration: 1,
+            ease: "easeOut",
         }
     }
 }
 
-
 const AnimatedText = ({text, className = ""}: AnimatedTextProps) => {
-  return ( 
-    <div className="w-full mx-auto py-2 flex items-center justify-center text-center overflow-hidden ">
-      <motion.h1 className={`inline-block w-full text-dark font-bold text-8xl ${className}`} variants={quote} initial = "initial" animate = "animate" > 
-        {
-        text.split(" ").map((word, index) => (
-            <motion.span key={word + '-' + index } className="inline-block" variants={singleWord}   >{word}&nbsp;</motion.span>
-        ))
-        }
-      </motion.h1>
-    </div>
-  );
+    return ( 
+        <div className="w-full mx-auto py-2 flex items-center justify-center text-center overflow-hidden">
+            <motion.h1 
+                className={`inline-block w-full text-dark font-bold text-8xl ${className}`} 
+                variants={quote} 
+                initial="initial" 
+                animate="animate"
+            > 
+                {
+                    text.split(" ").map((word, index) => (
+                        <motion.span 
+                            key={word + '-' + index} 
+                            className="inline-block" 
+                            variants={singleWord}
+                        >
+                            {word}&nbsp;
+                        </motion.span>
+                    ))
+                }
+            </motion.h1>
+        </div>
+    );
 }
 
 export default AnimatedText;

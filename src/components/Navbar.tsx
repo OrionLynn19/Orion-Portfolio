@@ -5,6 +5,7 @@ import Logo from './Logo' ;
 import { usePathname } from 'next/navigation' ;
 import {TwitterIcon,LinkedInIcon,GithubIcon,PinterestIcon,DribbbleIcon,SunIcon,MoonIcon,CircularText,LinkArrow } from './icon' ; 
 import {motion} from 'framer-motion'; 
+import useThemeSwitcher from './hooks/useThemeSwitcher' ;
 
 interface  CustomLinkProps {
     href : string ; 
@@ -27,6 +28,9 @@ const CustomLink = ({href, title, className=""}: CustomLinkProps) => {
 
 
 export const Navbar = () => {
+
+    const [mode, setMode] = useThemeSwitcher();
+
     return (
         <header className = "w-full px-32 py-8 font-medium flex items-center justify-between ">  
  
@@ -43,6 +47,9 @@ export const Navbar = () => {
             <motion.a href="/" target = {"_blank"} whileHover={{y:-2}} className="w-7 mx-3" whileTap={{scale: 0.9}} > <LinkedInIcon /> </motion.a>
             <motion.a href="/" target = {"_blank"} whileHover={{y:-2}} className="w-7 mx-3" whileTap={{scale: 0.9}} > <PinterestIcon /> </motion.a>
             <motion.a href="/" target = {"_blank"} whileHover={{y:-2}} className="w-7 ml-3" whileTap={{scale: 0.9}} > <DribbbleIcon /> </motion.a>
+            <button className='ml-3 flex items-center justify-center rounded-full p-1' onClick={() => setMode (mode === 'light' ? 'dark' : 'light')} >
+                {mode === 'dark' ? <SunIcon className='fill-dark' /> : <MoonIcon className='fill-dark' />}
+            </button>
          </nav>
          <div className="absolute left-[50%] top-2 translate-x-[-50%]"> 
             

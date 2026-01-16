@@ -6,6 +6,7 @@ module.exports = {
     content : [
         "./src/**/*.{js,ts,jsx,tsx}"
     ], 
+    darkMode : 'class' , 
     theme : {
         extend: {
             fontFamily: {
@@ -25,5 +26,6 @@ module.exports = {
             }
 
         }
-    }
+    },
+    plugins: [] , 
 }

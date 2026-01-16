@@ -1,6 +1,7 @@
 import React, { useRef } from 'react' ; 
 import { motion, useScroll } from 'framer-motion';
 import Liicons from './Liicons' ;
+import AnimatedText from './AnimatedText';
 interface DetailsProps {
     position : string ; 
     company : string ; 
@@ -37,7 +38,7 @@ const Experience = () => {
     ) ;
     return (
         <div className='my-64'> 
-            <h2 className='font-bold text-8xl mb-32 w-full text-center'> Experience   </h2>
+            <AnimatedText text='Experience' className='font-bold text-8xl mb-32 w-full text-center animate-pulse' /> 
             <div ref={first} className='w-[75%] mx-auto relative' > 
                 <motion.div style={{scaleY: scrollYProgress}} className='absolute left-9 top-0 w-[4px] h-full bg-dark origin-top' /> 
                
