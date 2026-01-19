@@ -4,6 +4,7 @@ import { Geist, Geist_Mono, Montserrat } from "next/font/google";
 import "./globals.css";
 import Navbar from "../components/Navbar"; 
 import Footer from "../components/Footer";
+import Holder from "../components/Holder";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -30,10 +31,10 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${montserrat.variable} font-mont bg-light  text-dark dark:text-light dark:bg-dark w-full min-h-screen`}
+        className={`${montserrat.variable} font-mont pt-20  text-dark  w-full min-h-screen bg-gradient-to-tr from-orange-600 via-orange-400 to-light`}
       >
         <Navbar /> 
-        {children}
+        {children} 
         <Footer />
       </body>
     </html>

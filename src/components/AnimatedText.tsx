@@ -1,5 +1,4 @@
 "use client";
-import React from "react";
 import { motion } from 'framer-motion';
 
 interface AnimatedTextProps { 
@@ -37,7 +36,7 @@ const singleWord = {
     }
 }
 
-const AnimatedText = ({text, className = ""}: AnimatedTextProps) => {
+const AnimatedText = ({text="", className = ""}: AnimatedTextProps) => {
     return ( 
         <div className="w-full mx-auto py-2 flex items-center justify-center text-center overflow-hidden">
             <motion.h1 

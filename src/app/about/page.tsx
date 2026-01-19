@@ -7,9 +7,9 @@ import AnimatedText from "../../components/AnimatedText";
 import Image from "next/image";
 import pf from "../../../public/images/devpic1.png";
 import { useInView, useMotionValue, useSpring } from "framer-motion";
-import Skills from "@/src/components/Skills";
-import Experience from "@/src/components/Experience";
-import Education from "@/src/components/Education";
+import Skills from "../../components/Skills";
+import Experience from "../..//components/Experience";
+import Education from "../../components/Education";
 
 interface numberprops { 
     value : number ; 
@@ -54,8 +54,8 @@ export default function About() {
             </Head>
 
             <main className="flex flex-col items-center justify-center w-full ">
-                <Holder className="pt-16">
-                    <AnimatedText text="I am Capable!!" className="mb-16" > </AnimatedText>
+                <div className="pt-16 w-full h-full inline-block z-0 p-32 ">
+                    <AnimatedText text="I am Capable!!" className="mb-16" />
 
 
                     <div className="grid grid-cols-8 gap-16 w-full ">
@@ -110,7 +110,7 @@ export default function About() {
                     <Skills /> 
                     <Experience /> 
                     <Education /> 
-                </Holder>
+                </div>
 
             </main >
         </>

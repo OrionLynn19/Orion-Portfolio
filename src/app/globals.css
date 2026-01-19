@@ -1,10 +1,22 @@
 @import "tailwindcss";
-@custom-variant dark (&:where([data-theme=dark], [data-theme=dark] *));
-
 
 :root {
   --background: #ffffff;
   --foreground: #171717;
+  --color-dark: #1b1b1b;
+  --color-light: #f5f5f5;
+  --color-primary: #FEF3C7;
+  --color-primaryDark: #58E6D9;
+  --color-orange-400: #fb923c;
+  --color-orange-600: 	#ea580c; 
+}
+
+/* When .dark class is on <html>, SWAP the values */
+.dark {
+  --color-light: #1b1b1b;  /* light becomes dark */
+  --color-dark: #f5f5f5;   /* dark becomes light */
+  --color-orange-400: #9a3412 ; 
+  --color-orange-600: 	#c2410c ; 
 }
 
 @theme inline {
@@ -13,20 +25,14 @@
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
   
-  /* Custom colors */
-  --color-dark: #1b1b1b;
-  --color-light: #f5f5f5;
-  --color-primary: #B63E96;
-  --color-primaryDark: #58E6D9;
+  /* Reference the CSS variables - don't hardcode! */
+  --color-light: var(--color-light);
+  --color-dark: var(--color-dark);
+  --color-primary: var(--color-primary);
+  --color-primaryDark: var(--color-primaryDark);
+  --color-orange-400: var(--color-orange-400);
+  --color-orange-600: var(--color-orange-600);
 }
-
-
- @media (prefers-color-scheme: light) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
-} 
 
 /* Define keyframe animation */
 @keyframes spin-slow {
@@ -43,16 +49,8 @@
   .animate-spin-slow {
     animation: spin-slow 6s linear infinite;
   }
-  .dark {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
-  
-  
 }
 
 body {
-  background: var(--color-light);
-  color: var(--foreground);
-  font-family: var(--font-geist-sans), Arial, Helvetica, sans-serif;
+  font-family: Arial, Helvetica, sans-serif;
 }

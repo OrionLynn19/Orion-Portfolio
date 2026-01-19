@@ -11,14 +11,14 @@ import { motion } from 'framer-motion';
 const Contact = () => {
     return (
         <main className="w-full mb-16 flex flex-col items-center justify-center">
-            <Holder className="pt-16">
+            <div className="pt-16 w-full h-full inline-block z-0  text-dark p-32 ">
                 <AnimatedText 
                     text='Get In Touch' 
                     className='mb-16 lg:!text-7xl sm:!text-6xl xs:!text-4xl'
                 />
 
                 <div className="w-full flex lg:flex-row flex-col items-start justify-between gap-16">
-                    {/* Left Side - About & Image */}
+                  
                     <motion.div 
                         className="lg:w-1/2 w-full flex flex-col items-start justify-start"
                         initial={{ opacity: 0, x: -50 }}
@@ -27,7 +27,7 @@ const Contact = () => {
                     >
                         
 
-                        {/* About Section */}
+                        
                         <div className="w-full">
                             <h3 className="text-3xl font-bold text-dark mb-4">
                                 Let's Create Something Amazing!
@@ -63,7 +63,7 @@ const Contact = () => {
                         </div>
                     </motion.div>
 
-                    {/* Right Side - Contact Form */}
+                   
                     <motion.div 
                         className="lg:w-1/2 w-full"
                         initial={{ opacity: 0, x: 50 }}
@@ -71,7 +71,7 @@ const Contact = () => {
                         transition={{ duration: 0.8, delay: 0.2 }}
                     >
                         <div className="bg-light border border-solid border-dark rounded-3xl p-8 relative">
-                            {/* Shadow effect */}
+                           
                             <div className="absolute top-0 -right-3 -z-10 w-[101%] h-[103%] rounded-[2rem] bg-dark"/>
                             
                             <form className="space-y-6">
@@ -147,7 +147,7 @@ const Contact = () => {
                         </div>
                     </motion.div>
                 </div>
-            </Holder>
+            </div>
         </main>
     );
 };

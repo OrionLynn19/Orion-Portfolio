@@ -90,7 +90,7 @@ const ProjectsComponent = ({title, type, img, link, github}: ProjectProps) => {
 const Projects = () => {
     return ( 
         <main className="w-full mb-16 flex flex-col items-center justify-center"> 
-            <Holder className="pt-16"> 
+            <div className="pt-16 w-full h-full inline-block z-0  text-dark p-32 "> 
                 <AnimatedText
                     text="My Projects"
                     className="mb-16"
@@ -154,7 +154,7 @@ const Projects = () => {
                     </div>
 
                 </div>
-            </Holder>
+            </div>
         </main> 
     )
 }
