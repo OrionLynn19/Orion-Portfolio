@@ -5,7 +5,7 @@ import Holder from "../../components/Holder";
 import { Andika } from "next/font/google";
 import AnimatedText from "../../components/AnimatedText";
 import Image from "next/image";
-import pf from "../../../public/images/devpic1.png";
+import pf from "../../../public/images/stacks3.png";
 import { useInView, useMotionValue, useSpring } from "framer-motion";
 import Skills from "../../components/Skills";
 import Experience from "../..//components/Experience";
@@ -55,25 +55,19 @@ export default function About() {
 
             <main className="flex flex-col items-center justify-center w-full ">
                 <div className="pt-16 w-full h-full inline-block z-0 p-32 ">
-                    <AnimatedText text="I am Capable!!" className="mb-16" />
+                    <AnimatedText text="About Me!" className="mb-16" />
 
 
                     <div className="grid grid-cols-8 gap-16 w-full ">
                         <div className="col-span-3 flex flex-col items-start justify-start " >
-                            <h2 className="mb-4 text-lg font-bold uppercase text-dark/75"> Biography  </h2>
-                            <p className="my-4 font-medium">
-                                Lorem ipsum dolor sit amet consectetur adipisicing elit. Sequi, sed saepe. Dolor maiores aut aspernatur repellendus cupiditate ullam, doloribus, ea commodi at inventore, sapiente modi deleniti omnis porro nesciunt ducimus?
-                            </p>
-                            <p className="my-4 font-medium">
-                                Lorem ipsum dolor sit amet consectetur adipisicing elit. Sequi, sed saepe. Dolor maiores aut aspernatur repellendus cupiditate ullam, doloribus, ea commodi at inventore, sapiente modi deleniti omnis porro nesciunt ducimus?
-                            </p>
-                            <p className=" font-medium">
-                                Lorem ipsum dolor sit amet consectetur adipisicing elit. Sequi, sed saepe. Dolor maiores aut aspernatur repellendus cupiditate ullam, doloribus, ea commodi at inventore, sapiente modi deleniti omnis porro nesciunt ducimus?
+                            <h2 className="mb-4 text-lg font-bold uppercase text-dark/75"> Profile  </h2>
+                            <p className="my-4 font-medium leading-relaxed text-dark text-justify">
+                               I am a backend developer intern with hands‑on experience across full‑stack development, cloud infrastructure, and e‑commerce platforms. My technical toolkit includes PostgreSQL for database design, Next.js  and Tailwind for responsive frontends, and AWS, Kubernetes, and Docker for scalable deployments and CI/CD automation. I lead code reviews with a focus on security and maintainability, and I’m currently preparing for the SAP‑C02 and CKA certifications to deepen my expertise in cloud architecture and Kubernetes troubleshooting. This mix of practical engineering, DevOps fluency, and certification‑driven growth reflects my commitment to building robust, modern systems that deliver real impact
                             </p>
                         </div>
-                        <div className="col-span-3 relative h-max rounded-2xl border-2 border-solid border-dark bg-light p-8">
-                            <div className="absolute top-0 -right-3 -z-10 w-[102%] h-[103%] rounded-[2rem] bg-dark"></div>
-                            <Image src={pf} alt="Orion Lynn" className="w-full h-auto rounded-2xl" />
+                        <div className="col-span-3 relative h-max rounded-2xl border-2 border-solid border-dark bg-gradient-to-br from-light to-orange-600 p-8 ">
+                            
+                            <Image src={pf}  alt="Orion Lynn" className="w-full h-auto rounded-2xl" />
                         </div>
 
                         <div className="col-span-2 flex flex-col items-center justify-between items-end"> 

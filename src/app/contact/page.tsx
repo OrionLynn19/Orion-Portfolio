@@ -70,7 +70,7 @@ const Contact = () => {
                         animate={{ opacity: 1, x: 0 }}
                         transition={{ duration: 0.8, delay: 0.2 }}
                     >
-                        <div className="bg-light border border-solid border-dark rounded-3xl p-8 relative">
+                        <div className="bg-gradient-to-br from-light to-orange-600 border border-solid border-dark rounded-3xl p-8 relative">
                            
                             <div className="absolute top-0 -right-3 -z-10 w-[101%] h-[103%] rounded-[2rem] bg-dark"/>
                             
