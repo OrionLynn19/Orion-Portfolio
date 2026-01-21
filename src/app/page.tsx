@@ -7,9 +7,8 @@ import Link from "next/link";
 import { LinkArrow, GithubIcon } from "../components/icon";
 import Hireme from "../components/Hireme"; 
 import profilepic from "../../public/images/dev-pic-1].png";
-import aboutpic from "../../public/images/pf3.jpeg";
-import { motion, Variants, useMotionValue, useTransform } from "framer-motion";
-import React, { useRef } from "react";
+import aboutpic from "../../public/images/pf4.png";
+import { motion, Variants } from "framer-motion";
 
 const inter = Inter({ subsets: ['latin'] })
 
@@ -67,152 +66,6 @@ const itemVariants: Variants = {
   },
 };
 
-// 3D Tilt Photo Component
-const AnimatedPhotoCard = () => {
-  const ref = useRef<HTMLDivElement>(null);
-  const x = useMotionValue(0);
-  const y = useMotionValue(0);
-
-  const rotateX = useTransform(y, [-100, 100], [15, -15]);
-  const rotateY = useTransform(x, [-100, 100], [-15, 15]);
-
-  const handleMouse = (e: React.MouseEvent<HTMLDivElement>) => {
-    if (!ref.current) return;
-    const rect = ref.current.getBoundingClientRect();
-    const centerX = rect.left + rect.width / 2;
-    const centerY = rect.top + rect.height / 2;
-    x.set(e.clientX - centerX);
-    y.set(e.clientY - centerY);
-  };
-
-  const handleMouseLeave = () => {
-    x.set(0);
-    y.set(0);
-  };
-
-  return (
-    <motion.div
-      ref={ref}
-      className="col-span-5 relative cursor-pointer"
-      style={{
-        perspective: "1000px",
-      }}
-      initial={{ opacity: 0, scale: 0.8, rotateY: -30 }}
-      whileInView={{ opacity: 1, scale: 1, rotateY: 0 }}
-      viewport={{ once: true }}
-      transition={{ duration: 0.8, ease: "easeOut" as const }}
-    >
-      {/* Animated Glow Ring */}
-      <motion.div
-        className="absolute -inset-4 rounded-3xl opacity-75 blur-xl"
-        style={{
-          background: "linear-gradient(45deg, #ea580c, #fb923c, #f5f5f5, #ea580c)",
-          backgroundSize: "400% 400%",
-        }}
-        animate={{
-          backgroundPosition: ["0% 50%", "100% 50%", "0% 50%"],
-        }}
-        transition={{
-          duration: 5,
-          repeat: Infinity,
-          ease: "linear",
-        }}
-      />
-
-      {/* Card Container */}
-      <motion.div
-        className="relative rounded-2xl border-2 border-light/60 bg-gradient-to-br from-light via-orange-200 to-orange-600 p-6 overflow-hidden"
-        style={{
-          rotateX,
-          rotateY,
-          transformStyle: "preserve-3d",
-        }}
-        onMouseMove={handleMouse}
-        onMouseLeave={handleMouseLeave}
-      >
-        {/* Floating Particles */}
-        <motion.div
-          className="absolute top-4 left-4 w-3 h-3 rounded-full bg-dark/30"
-          animate={{
-            y: [0, -20, 0],
-            x: [0, 10, 0],
-            scale: [1, 1.2, 1],
-          }}
-          transition={{
-            duration: 3,
-            repeat: Infinity,
-            ease: "easeInOut",
-          }}
-        />
-        <motion.div
-          className="absolute top-10 right-8 w-2 h-2 rounded-full bg-dark/20"
-          animate={{
-            y: [0, -15, 0],
-            x: [0, -8, 0],
-            scale: [1, 1.3, 1],
-          }}
-          transition={{
-            duration: 2.5,
-            repeat: Infinity,
-            ease: "easeInOut",
-            delay: 0.5,
-          }}
-        />
-        <motion.div
-          className="absolute bottom-12 left-10 w-4 h-4 rounded-full bg-light/40"
-          animate={{
-            y: [0, -25, 0],
-            x: [0, 15, 0],
-            scale: [1, 1.1, 1],
-          }}
-          transition={{
-            duration: 4,
-            repeat: Infinity,
-            ease: "easeInOut",
-            delay: 1,
-          }}
-        />
-
-        {/* Shine Effect */}
-        <motion.div
-          className="absolute inset-0 bg-gradient-to-tr from-transparent via-light/30 to-transparent"
-          initial={{ x: "-100%", opacity: 0 }}
-          whileHover={{ x: "100%", opacity: 1 }}
-          transition={{ duration: 0.6, ease: "easeInOut" }}
-        />
-
-        {/* Image with 3D Pop */}
-        <motion.div
-          style={{ transform: "translateZ(50px)" }}
-          className="relative bg-dark"
-        >
-          <Image
-            src={aboutpic}
-            alt="Orion Lynn"
-            className="w-auto h-auto rounded-xl"
-          />
-          
-          {/* Image Overlay Gradient */}
-          <div className="absolute inset-0 rounded-xl bg-gradient-to-t from-dark/20 to-transparent" />
-        </motion.div>
-
-        {/* Decorative Corner */}
-        <motion.div
-          className="absolute -bottom-2 -right-2 w-20 h-20 bg-dark/10 rounded-tl-3xl"
-          animate={{
-            scale: [1, 1.1, 1],
-          }}
-          transition={{
-            duration: 2,
-            repeat: Infinity,
-            ease: "easeInOut",
-          }}
-        />
-      </motion.div>
-    </motion.div>
-  );
-};
-
 export default function Home() {
   return (
     <> 
@@ -243,7 +96,7 @@ export default function Home() {
                   alt="Orion photo" 
                   width={500} 
                   height={400}
-                  className="rounded-full"
+                  className="rounded-full sm:w-full sm:h-auto"
                 />
               </div>
 
@@ -305,8 +158,18 @@ export default function Home() {
                   </Link>
                 </motion.div>
 
-                {/* Animated Photo Card */}
-                <AnimatedPhotoCard />
+                {/* Simple Photo Card */}
+                <motion.div 
+                  className="col-span-5 rounded-xl  bg-transparent  overflow-hidden mix-blend-multiply"
+                  variants={itemVariants}
+                  whileHover={{ scale: 1.02 }}
+                >
+                  <Image
+                    src={aboutpic}
+                    alt="Orion Lynn"
+                    className="pl-14 w-95 h-auto z-10 mix-blend-darken pb-4"
+                  />
+                </motion.div>
               </div>
             </motion.div>
 

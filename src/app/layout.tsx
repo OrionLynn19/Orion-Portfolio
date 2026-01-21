@@ -23,6 +23,8 @@ const geistMono = Geist_Mono({
 
 
 
+
+
 export default function RootLayout({
   children,
 }: Readonly<{
@@ -31,7 +33,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${montserrat.variable} font-mont pt-20  text-dark  w-full min-h-screen bg-gradient-to-tr from-orange-600 via-orange-400 to-light`}
+        className={`${montserrat.variable} font-mont pt-20  text-dark  w-full min-h-screen bg-gradient-to-tr from-orange-600 via-orange-400 to-light `}
       >
         <Navbar /> 
         {children} 
