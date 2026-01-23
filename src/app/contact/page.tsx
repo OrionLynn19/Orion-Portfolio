@@ -108,7 +108,7 @@ const Contact = () => {
                                             rel="noopener noreferrer"
                                             variants={{
                                                 open: { x: 0, opacity: 1 },
-                                                closed: { y: 30, opacity: 0 }
+                                                closed: { x: 30, opacity: 0 }
                                             }}
                                             transition={{ type: "spring", stiffness: 300, damping: 20 }}
                                         >
