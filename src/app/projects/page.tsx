@@ -17,86 +17,79 @@ interface FeaturedProjectProps {
     summary: string; 
     img: string; 
     link: string; 
-    github: string } 
+    github: string 
+} 
 
 interface ProjectProps { 
     type: string; 
     title: string; 
     img: string; 
     link: string; 
-    github: string }    
+    github: string 
+}    
 
-const FeaturedProject = ({type, title, summary,img, link, github}: FeaturedProjectProps) => {
+const FeaturedProject = ({type, title, summary, img, link, github}: FeaturedProjectProps) => {
     return (
-        <article className='w-full flex items-center justify-between rounded-3xl border border-solid border-dark bg-light shadow-2xl p-12 relative rounded-br-2xl'> 
-        <div className="absolute top-0 -right-3 -z-10 w-[101%] h-[103%] rounded-[2.5rem] bg-dark rounded-br-3xl"/>
-         <Link href={link} target='_blank' className='w-1/2 cursor-pointer overflow-hidden rounded-lg relative' >
-            <Image src={img} alt={title}  fill  className='w-full h-auto' />
-        </Link>
-
-        <div className='w-1/2 flex flex-col items-start justify-between pl-6'> 
-            <span className='text-primary font-medium text-xl'> {type} </span> 
-            <Link href={link} target='_blank' className='hover:underline underline-offset-2' >
-                <h2 className='my-2 w-full text-black text-4xl font-bold '> {title} </h2>
+        <article className='w-full flex flex-col lg:flex-row items-center justify-between rounded-3xl border border-solid border-dark bg-light shadow-2xl p-6 sm:p-8 md:p-10 lg:p-12 relative rounded-br-2xl'> 
+            <div className="absolute top-0 -right-3 -z-10 w-[101%] h-[103%] rounded-[2.5rem] bg-dark rounded-br-3xl"/>
+            <Link href={link} target='_blank' className='w-full lg:w-1/2 cursor-pointer overflow-hidden rounded-lg relative mb-6 lg:mb-0' >
+                <Image src={img} alt={title} fill className='w-full h-auto' />
             </Link>
-            <p className='my-2 font-medium text-dark'>  {summary} </p>
-            <div className='flex items-center mt-2'>
-                <Link href={github} target='_blank' className='w-10' > 
-                    <GithubIcon /> 
+            <div className='w-full lg:w-1/2 flex flex-col items-start justify-between lg:pl-6'>
+                <span className='text-primary font-medium text-lg sm:text-xl'> {type} </span> 
+                <Link href={link} target='_blank' className='hover:underline underline-offset-2' >
+                    <h2 className='my-2 w-full text-black text-2xl sm:text-3xl lg:text-4xl font-bold '> {title} </h2>
                 </Link>
-                <Link href={link} target='_blank' 
-                className='ml-4 rounded-lg bg-dark text-light p-2 px-6 text-lg font-semibold' >
-                    Visit Project
-                </Link>
+                <p className='my-2 font-medium text-dark text-sm sm:text-base'>  {summary} </p>
+                <div className='flex items-center mt-2'>
+                    <Link href={github} target='_blank' className='w-8 sm:w-10' > 
+                        <GithubIcon /> 
+                    </Link>
+                    <Link href={link} target='_blank' 
+                        className='ml-4 rounded-lg bg-dark text-light p-2 px-4 sm:px-6 text-base sm:text-lg font-semibold' >
+                        Visit Project
+                    </Link>
+                </div>
             </div>
-
-        </div>
-
         </article>
     )
 }
 
 const ProjectsComponent = ({title, type, img, link, github}: ProjectProps) => {
     return ( 
-        <article className='w-full flex  flex-col items-center justify-center rounded-3xl border border-solid border-dark bg-light p-6 relative'> 
-         <div className="absolute top-0 -right-3 -bottom-3 -z-10 w-[101%] h-[103%] rounded-[2rem] bg-dark rounded-br-3xl "/>
+        <article className='w-full flex flex-col items-center justify-center rounded-3xl border border-solid border-dark bg-light p-4 sm:p-6 md:p-8 relative'> 
+            <div className="absolute top-0 -right-3 -bottom-3 -z-10 w-[101%] h-[103%] rounded-[2rem] bg-dark rounded-br-3xl "/>
             <Link href={link} target='_blank' className='w-full cursor-pointer overflow-hidden rounded-lg ' >
-            <Image src={img} alt={title} fill className='w-full h-auto' />
-        </Link>
-
-        <div className='w-full flex flex-col items-start justify-between mt-4'> 
-            <span className='text-primary font-medium text-xl'> {type} </span> 
-            <Link href={link} target='_blank' className='hover:underline underline-offset-2' >
-                <h2 className='my-2 w-full text-black text-3xl font-bold '> {title} </h2>
+                <Image src={img} alt={title} fill className='w-full h-auto' />
             </Link>
-            
-            <div className='flex items-center mt-2 justify-between w-full'>
-                <Link href={github} target='_blank' className='w-8' > 
-                 {" "}   <GithubIcon />  {" "}
+            <div className='w-full flex flex-col items-start justify-between mt-4'> 
+                <span className='text-primary font-medium text-lg sm:text-xl'> {type} </span> 
+                <Link href={link} target='_blank' className='hover:underline underline-offset-2' >
+                    <h2 className='my-2 w-full text-black text-xl sm:text-2xl lg:text-3xl font-bold '> {title} </h2>
                 </Link>
-                <Link href={link} target='_blank' 
-                className='mr-2 text-lg  font-semibold hover:underline' >Visit
-                </Link>
+                <div className='flex items-center mt-2 justify-between w-full'>
+                    <Link href={github} target='_blank' className='w-6 sm:w-8' > 
+                        <GithubIcon />  
+                    </Link>
+                    <Link href={link} target='_blank' 
+                        className='mr-2 text-base sm:text-lg font-semibold hover:underline' >Visit
+                    </Link>
+                </div>
             </div>
-
-        </div>
-           
         </article>
     )
-
 }
- 
 
 const Projects = () => {
     return ( 
-        <main className="w-full mb-16 flex flex-col items-center justify-center"> 
-            <div className="pt-16 w-full h-full inline-block z-0  text-dark p-32 "> 
+        <main className="w-full mb-8 sm:mb-12 md:mb-16 flex flex-col items-center justify-center"> 
+            <div className="pt-8 sm:pt-12 md:pt-16 w-full h-full inline-block z-0 text-dark p-4 sm:p-8 md:p-16 lg:p-32"> 
                 <AnimatedText
                     text="My Projects"
-                    className="mb-16"
+                    className="mb-8 sm:mb-12 md:mb-16"
                 />
-                <div className='grid grid-cols-12 gap-24 gay-y-32'> 
-                    <div className='col-span-12'>  
+                <div className='grid grid-cols-1 lg:grid-cols-12 gap-8 sm:gap-12 md:gap-16 lg:gap-24'>
+                    <div className='col-span-1 lg:col-span-12 mb-8 lg:mb-0'>  
                         <FeaturedProject
                             type="Featured"
                             title="Featured Project"
@@ -106,7 +99,7 @@ const Projects = () => {
                             github="/"
                         />
                     </div>
-                    <div className='col-span-6'>  
+                    <div className='col-span-1 lg:col-span-6 mb-8 lg:mb-0'>  
                         <ProjectsComponent
                             type="Featured"
                             title="Featured Project"
@@ -115,8 +108,8 @@ const Projects = () => {
                             github="/"
                         />
                     </div>
-                    <div className='col-span-6'>  
-                          <ProjectsComponent
+                    <div className='col-span-1 lg:col-span-6 mb-8 lg:mb-0'>  
+                        <ProjectsComponent
                             type="Featured"
                             title="Featured Project"
                             img="/"
@@ -124,7 +117,7 @@ const Projects = () => {
                             github="/"
                         />
                     </div>
-                    <div className='col-span-12'>  
+                    <div className='col-span-1 lg:col-span-12 mb-8 lg:mb-0'>  
                         <FeaturedProject
                             type="Featured"
                             title="Featured Project"
@@ -134,7 +127,7 @@ const Projects = () => {
                             github="/"
                         />
                     </div>
-                    <div className='col-span-6'>  
+                    <div className='col-span-1 lg:col-span-6'>  
                         <ProjectsComponent
                             type="Featured"
                             title="Featured Project"
@@ -143,8 +136,8 @@ const Projects = () => {
                             github="/"
                         />
                     </div>
-                    <div className='col-span-6'>  
-                          <ProjectsComponent
+                    <div className='col-span-1 lg:col-span-6'>  
+                        <ProjectsComponent
                             type="Featured"
                             title="Featured Project"
                             img="/"
@@ -152,7 +145,6 @@ const Projects = () => {
                             github="/"
                         />
                     </div>
-
                 </div>
             </div>
         </main> 

@@ -12,10 +12,8 @@ import { motion, Variants } from "framer-motion";
 
 const inter = Inter({ subsets: ['latin'] })
 
-// Featured skills
 const skills = ["Next.js", "AWS", "Docker", "PostgreSQL", "TypeScript", "Kubernetes"];
 
-// Featured projects
 const projects = [
   {
     title: "E-Commerce Platform",
@@ -40,7 +38,6 @@ const projects = [
   },
 ];
 
-// Animation variants
 const containerVariants: Variants = {
   hidden: { opacity: 0, y: 50 },
   visible: {
@@ -77,61 +74,61 @@ export default function Home() {
       </Head>
 
       <main className='flex flex-col items-center text-dark w-full min-h-screen'> 
-        <div className="pt-0 w-full h-full inline-block z-0 p-32">
+        <div className="pt-0 w-full h-full inline-block z-0 p-8 md:pt-12 lg:p-28 lg:pt-16">
           <div className="flex flex-col items-center w-full">
             
             {/* Hero Section */}
-            <div className="flex items-center justify-between w-full">
-              <div className="w-1/3 flex flex-col items-start mx-6 -translate-y-8">
-                <p className="text-dark font-bold translate-x-4 text-lg">Yo, My name is</p>
+            <div className="flex flex-col lg:flex-row items-center lg:justify-between w-full">
+              <div className="w-full lg:w-1/3 flex flex-col items-center lg:items-start lg:mx-6 lg:-translate-y-4">
+                <p className="text-dark font-bold lg:translate-x-4 text-base lg:text-xl">Yo, My name is</p>
                 <AnimatedText 
                   text="Orion Lynn" 
-                  className="!text-10xl !text-left leading-tight" 
+                  className="!text-center lg:!text-left leading-tight" 
                 />
               </div>
 
-              <div className="flex justify-center items-center">
+              <div className="flex justify-center items-center my-8 lg:my-0">
                 <Image 
                   src={profilepic} 
                   alt="Orion photo" 
                   width={500} 
                   height={400}
-                  className="rounded-full sm:w-full sm:h-auto"
+                  className="rounded-full w-[250px] lg:w-[500px] h-auto"
                 />
               </div>
 
-              <div className="w-1/3 flex flex-col items-center text-justify">
+              <div className="w-full lg:w-1/3 flex flex-col items-center lg:text-justify">
                 <AnimatedText 
                   text="A Full-Stack Developer, System Architect, and Tech Enthusiast." 
-                  className="!text-2xl leading-relaxed !text-justify pl-12" 
+                  className="!text-base lg:!text-xl leading-relaxed !text-center lg:!text-justify pl-0 lg:pl-12" 
                 />
               </div>
             </div>
 
             {/* ===== ABOUT SUMMARY SECTION ===== */}
             <motion.div 
-              className="w-full mt-24"
+              className="w-full mt-16 lg:mt-24"
               initial="hidden"
               whileInView="visible"
               viewport={{ once: true, amount: 0.2 }}
               variants={containerVariants}
             >
               <motion.h2 
-                className="text-5xl font-bold text-center mb-12"
+                className="text-3xl lg:text-5xl font-bold text-center mb-8 lg:mb-12"
                 variants={itemVariants}
               >
                 Who Am I?
               </motion.h2>
 
-              <div className="grid grid-cols-12 gap-8 items-center">
+              <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-8 items-center">
                 {/* About Card */}
                 <motion.div 
-                  className="col-span-7 rounded-2xl border border-light/40 bg-gradient-to-br from-light to-orange-600 backdrop-blur-lg p-8 shadow-lg hover:shadow-[0_0_30px_8px_rgba(234,88,12,0.3)] transition-all duration-300"
+                  className="col-span-1 lg:col-span-7 rounded-2xl border border-light/40 bg-gradient-to-br from-light to-orange-600 backdrop-blur-lg p-6 lg:p-8 shadow-lg hover:shadow-[0_0_30px_8px_rgba(234,88,12,0.3)] transition-all duration-300"
                   variants={itemVariants}
                   whileHover={{ scale: 1.02 }}
                 >
-                  <h3 className="text-2xl font-bold mb-4 text-dark">About Me</h3>
-                  <p className="text-dark/90 leading-relaxed mb-6">
+                  <h3 className="text-xl lg:text-2xl font-bold mb-3 lg:mb-4 text-dark">About Me</h3>
+                  <p className="text-dark/90 leading-relaxed mb-4 lg:mb-6 text-sm lg:text-base">
                     I&apos;m a backend developer with hands-on experience across full-stack development, 
                     cloud infrastructure, and e-commerce platforms. Currently preparing for 
                     <span className="font-bold"> SAP-C02</span> and 
@@ -139,11 +136,11 @@ export default function Home() {
                   </p>
                   
                   {/* Skills Pills */}
-                  <div className="flex flex-wrap gap-2 mb-6">
+                  <div className="flex flex-wrap gap-2 mb-4 lg:mb-6">
                     {skills.map((skill) => (
                       <span 
                         key={skill}
-                        className="px-4 py-2 rounded-full bg-dark text-light text-sm font-medium shadow-[0_0_10px_2px_rgba(27,27,27,0.3)] hover:scale-105 transition-transform"
+                        className="px-3 lg:px-4 py-1.5 lg:py-2 rounded-full bg-dark text-light text-xs lg:text-sm font-medium shadow-[0_0_10px_2px_rgba(27,27,27,0.3)] hover:scale-105 transition-transform"
                       >
                         {skill}
                       </span>
@@ -152,7 +149,7 @@ export default function Home() {
 
                   <Link 
                     href="/about"
-                    className="inline-flex items-center text-dark font-semibold hover:translate-x-2 transition-transform"
+                    className="inline-flex items-center text-dark font-semibold hover:translate-x-2 transition-transform text-sm lg:text-base"
                   >
                     Learn more about me →
                   </Link>
@@ -160,14 +157,15 @@ export default function Home() {
 
                 {/* Simple Photo Card */}
                 <motion.div 
-                  className="col-span-5 rounded-xl  bg-transparent  overflow-hidden mix-blend-multiply"
+                  className="flex items-center justify-center lg:col-span-5 rounded-xl bg-transparent overflow-hidden mix-blend-multiply order-first lg:order-last"
                   variants={itemVariants}
                   whileHover={{ scale: 1.02 }}
                 >
                   <Image
                     src={aboutpic}
                     alt="Orion Lynn"
-                    className="pl-14 w-95 h-auto z-10 mix-blend-darken pb-4"
+                    loading="eager"
+                    className="px-auto sm:items-center lg:pl-14 w-70 lg:w-95 h-auto z-10 mix-blend-darken pb-4"
                   />
                 </motion.div>
               </div>
@@ -175,49 +173,49 @@ export default function Home() {
 
             {/* ===== PROJECTS SUMMARY SECTION ===== */}
             <motion.div 
-              className="w-full mt-32"
+              className="w-full mt-20 lg:mt-32"
               initial="hidden"
               whileInView="visible"
               viewport={{ once: true, amount: 0.2 }}
               variants={containerVariants}
             >
               <motion.h2 
-                className="text-5xl font-bold text-center mb-4"
+                className="text-3xl lg:text-5xl font-bold text-center mb-3 lg:mb-4"
                 variants={itemVariants}
               >
                 Featured Projects
               </motion.h2>
               <motion.p 
-                className="text-center text-dark/75 mb-12 text-lg"
+                className="text-center text-dark/75 mb-8 lg:mb-12 text-base lg:text-lg"
                 variants={itemVariants}
               >
                 Some things I&apos;ve built recently
               </motion.p>
 
-              <div className="grid grid-cols-3 gap-8">
+              <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 lg:gap-8">
                 {projects.map((project, i) => (
                   <motion.div
                     key={project.title}
-                    className="group relative rounded-2xl border border-light/40 bg-gradient-to-br from-light via-light to-orange-400 backdrop-blur-lg p-6 shadow-lg hover:shadow-[0_0_30px_8px_rgba(234,88,12,0.3)] transition-all duration-300 overflow-hidden"
+                    className="group relative rounded-2xl border border-light/40 bg-gradient-to-br from-light via-light to-orange-400 backdrop-blur-lg p-5 lg:p-6 shadow-lg hover:shadow-[0_0_30px_8px_rgba(234,88,12,0.3)] transition-all duration-300 overflow-hidden"
                     variants={itemVariants}
                     whileHover={{ scale: 1.03, y: -10 }}
                   >
                     {/* Project Number */}
-                    <span className="absolute -top-4 -right-4 text-[100px] font-bold text-dark/5 group-hover:text-dark/10 transition-colors pr-6">
+                    <span className="absolute -top-4 -right-4 text-[80px] lg:text-[100px] font-bold text-dark/5 group-hover:text-dark/10 transition-colors pr-6">
                       0{i + 1}
                     </span>
 
                     {/* Content */}
                     <div className="relative z-10">
-                      <h3 className="text-xl font-bold mb-3 text-dark">{project.title}</h3>
-                      <p className="text-dark/80 mb-4 leading-relaxed">{project.description}</p>
+                      <h3 className="text-lg lg:text-xl font-bold mb-2 lg:mb-3 text-dark">{project.title}</h3>
+                      <p className="text-dark/80 mb-3 lg:mb-4 leading-relaxed text-sm lg:text-base">{project.description}</p>
                       
                       {/* Tags */}
-                      <div className="flex flex-wrap gap-2 mb-6">
+                      <div className="flex flex-wrap gap-2 mb-4 lg:mb-6">
                         {project.tags.map((tag) => (
                           <span 
                             key={tag}
-                            className="px-3 py-1 rounded-full bg-dark/10 text-dark text-xs font-medium border border-dark/20"
+                            className="px-2 lg:px-3 py-0.5 lg:py-1 rounded-full bg-dark/10 text-dark text-[10px] lg:text-xs font-medium border border-dark/20"
                           >
                             {tag}
                           </span>
@@ -225,18 +223,18 @@ export default function Home() {
                       </div>
 
                       {/* Links */}
-                      <div className="flex items-center gap-4">
+                      <div className="flex items-center gap-3 lg:gap-4">
                         <Link 
                           href={project.link}
-                          className="flex items-center gap-1 text-dark font-semibold hover:translate-x-1 transition-transform"
+                          className="flex items-center gap-1 text-dark font-semibold hover:translate-x-1 transition-transform text-sm lg:text-base"
                         >
                           View Project →
                         </Link>
                         <Link 
                           href={project.github}
-                          className="w-8 h-8 flex items-center justify-center rounded-full bg-dark text-light hover:scale-110 transition-transform"
+                          className="w-7 h-7 lg:w-8 lg:h-8 flex items-center justify-center rounded-full bg-dark text-light hover:scale-110 transition-transform"
                         >
-                          <GithubIcon className="w-5 h-5" />
+                          <GithubIcon className="w-4 h-4 lg:w-5 lg:h-5" />
                         </Link>
                       </div>
                     </div>
@@ -246,14 +244,14 @@ export default function Home() {
 
               {/* View All Projects Button */}
               <motion.div 
-                className="flex items-center justify-center mt-12 px-4"
+                className="flex items-center justify-center mt-8 lg:mt-12 px-4"
                 variants={itemVariants}
               >
                 <Link 
                   href="/projects"
-                  className="flex items-center gap-2 bg-dark text-light px-8 py-4 rounded-full text-sm font-semibold hover:bg-light hover:text-dark border-2 border-dark transition-all duration-300 shadow-[0_0_15px_4px_rgba(27,27,27,0.3)] hover:shadow-[0_0_25px_6px_rgba(234,88,12,0.4)]"
+                  className="flex items-center gap-2 bg-dark text-light px-6 lg:px-8 py-3 lg:py-4 rounded-full text-xs lg:text-sm font-semibold hover:bg-light hover:text-dark active:bg-light active:text-dark border-2 border-dark transition-all duration-300 shadow-[0_0_15px_4px_rgba(27,27,27,0.3)] hover:shadow-[0_0_25px_6px_rgba(234,88,12,0.4)]"
                 >
-                  View Projects <LinkArrow className="!w-6" />
+                  View Projects <LinkArrow className="!w-5 lg:!w-6" />
                 </Link>
               </motion.div>
             </motion.div>
