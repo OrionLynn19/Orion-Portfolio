@@ -9,6 +9,25 @@ import { GithubIcon, TwitterIcon, LinkedInIcon } from "@/src/components/icon";
 
 const Contact = () => {
     const [open, setOpen] = useState(false);
+    const [form , setForm] = useState({ name : '', phone:  '', email : '' , subject : '' , message : ''}) ; 
+    const [good , setGood] = useState(false) ; 
+
+    const submitForm = async ( e : React.FormEvent ) => {
+        e.preventDefault() ; 
+        const res = await fetch('contact/api/form', { 
+            method : 'POST' , 
+            headers : {
+                'Content-Type' : 'application/json' 
+            },
+            body : JSON.stringify(form) 
+        }) 
+        if (res.ok) {
+            setGood(true); 
+            setForm({ name: '', phone: '', email: '', subject: '', message: '' }); // Optionally reset form
+        } else {
+            setGood(false) ; 
+        }
+    }
 
     return (
         <main className="w-full mb-8 sm:mb-12 md:mb-16 flex flex-col items-center justify-center">
@@ -128,13 +147,15 @@ const Contact = () => {
                     >
                         <div className="bg-gradient-to-br from-light to-orange-600 border border-solid border-dark rounded-xl p-4 sm:p-6 md:p-8 relative">
                             
-                            <form className="space-y-4 sm:space-y-6">
+                            <form className="space-y-4 sm:space-y-6 " onSubmit={submitForm}>
                         
                                 <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                                     <div>
                                         <input
                                             id="name"
                                             name="name"
+                                            value={form.name}
+                                            onChange={(e) => setForm({...form, name : e.target.value})}
                                             type="text"
                                             placeholder="Your Name"
                                             required
@@ -145,6 +166,8 @@ const Contact = () => {
                                         <input
                                             id="phone"
                                             name="phone"
+                                            value={form.phone}
+                                            onChange={(e) => setForm({...form, phone : e.target.value})}
                                             type="tel"
                                             placeholder="Phone Number"
                                             className="w-full border-2 border-solid border-dark/20 rounded-xl p-3 sm:p-4 text-dark font-medium focus:border-primary focus:outline-none transition-colors bg-transparent"
@@ -156,6 +179,8 @@ const Contact = () => {
                                         id="email"
                                         name="email"
                                         type="email"
+                                        value={form.email}
+                                        onChange={(e) => setForm({...form, email : e.target.value})}
                                         placeholder="Your Email"
                                         required
                                         className="w-full border-2 border-solid border-dark/20 rounded-xl p-3 sm:p-4 text-dark font-medium focus:border-primary focus:outline-none transition-colors bg-transparent"
@@ -167,6 +192,8 @@ const Contact = () => {
                                         id="subject"
                                         name="subject"
                                         type="text"
+                                        value={form.subject}
+                                        onChange={(e) => setForm({...form, subject : e.target.value})}
                                         placeholder="Subject"
                                         required
                                         className="w-full border-2 border-solid border-dark/20 rounded-xl p-3 sm:p-4 text-dark font-medium focus:border-primary focus:outline-none transition-colors bg-transparent"
@@ -178,6 +205,8 @@ const Contact = () => {
                                         id="message"
                                         name="message"
                                         rows={6}
+                                        value={form.message}
+                                        onChange={(e) => setForm({...form, message : e.target.value})}
                                         placeholder="Your Message"
                                         required
                                         className="w-full border-2 border-solid border-dark/20 rounded-xl p-3 sm:p-4 text-dark font-medium focus:border-primary focus:outline-none transition-colors resize-none bg-transparent"
@@ -196,6 +225,25 @@ const Contact = () => {
                     </motion.div>
                 </div>
             </div>
+            {good && (
+              <div className="fixed  z-50 flex items-center justify-center ">
+                <motion.div
+                  initial={{ scale: 0.8, opacity: 0 }}
+                  animate={{ scale: 1, opacity: 1 }}
+                  transition={{ duration: 0.3 }}
+                  className="bg-gradient-to-r from-orange-400 to-dark-700 rounded-xl shadow-2xl p-8 flex flex-col items-center"
+                >
+                  <div className="sm:text-lg md:text-3xl lg:text-5xl mb-2 text- font-bold">Success!</div>
+                  <div className="mb-4 text-dark/90 sm:text-lg md:text-xl lg:text-2xl">Your message has been sent.</div>
+                  <button
+                    onClick={() => setGood(false)}
+                    className="mt-2 px-6 py-2 bg-orange-800 text-dark rounded-lg font-semibold hover:bg-primary hover:text-black transition"
+                  >
+                    Close
+                  </button>
+                </motion.div>
+              </div>
+            )}
         </main>
     );
 };
