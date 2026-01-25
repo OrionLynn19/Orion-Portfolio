@@ -77,7 +77,7 @@ export default function Home() {
         <div className="pt-0 w-full h-full inline-block z-0 p-8 md:pt-12 lg:p-28 lg:pt-16">
           <div className="flex flex-col items-center w-full">
             
-            {/* Hero Section */}
+           
             <div className="flex flex-col lg:flex-row items-center lg:justify-between w-full">
               <div className="w-full lg:w-1/3 flex flex-col items-center lg:items-start lg:mx-6 lg:-translate-y-4">
                 <p className="text-dark font-bold lg:translate-x-4 text-base lg:text-xl">Yo, My name is</p>
