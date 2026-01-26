@@ -8,7 +8,7 @@ const Hireme = () => {
             fixed
             top-4 right-4
             sm:top-auto sm:right-auto sm:left-8 sm:bottom-8
-            md:left-10 md:bottom-10
+            md:top-auto md:left-auto md:right-10 md:bottom-10
             w-30 h-30 
             md:w-45 md:h-45
             flex items-center justify-center

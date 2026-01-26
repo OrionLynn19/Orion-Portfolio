@@ -1,6 +1,5 @@
-
 import type { Metadata } from "next";
-import { Geist, Geist_Mono, Montserrat } from "next/font/google";
+import { Geist, Geist_Mono, Montserrat, Inter, Space_Grotesk } from "next/font/google";
 import "./globals.css";
 import Navbar from "../components/Navbar"; 
 import Footer from "../components/Footer";
@@ -21,9 +20,8 @@ const geistMono = Geist_Mono({
   subsets: ["latin"],
 });
 
-
-
-
+const inter = Inter({ subsets: ['latin'], variable: '--font-inter' });
+const spaceGrotesk = Space_Grotesk({ subsets: ['latin'], variable: '--font-space-grotesk' });
 
 export default function RootLayout({
   children,
@@ -33,7 +31,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${montserrat.variable} font-mont pt-20  text-dark  w-full min-h-screen bg-gradient-to-tr from-orange-600 via-orange-400 to-light `}
+        className={`${spaceGrotesk.variable} ${montserrat.variable}  pt-20  text-dark  w-full min-h-screen bg-gradient-to-tr from-light via-light  to-orange-400 `}
       >
         <Navbar /> 
         {children} 

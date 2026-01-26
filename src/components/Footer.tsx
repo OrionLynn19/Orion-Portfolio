@@ -22,12 +22,12 @@ const Footer = () => {
       <div className="max-w-6xl mx-auto flex flex-col gap-8 md:gap-0 md:flex-row items-center justify-between">
         {/* Left: Tagline and copyright */}
         <div className="flex flex-col items-center md:items-start gap-2">
-          <span className="text-xl font-extrabold tracking-tight text-orange-700 dark:text-orange-300">Orion Lynn</span>
+          <span className="text-xl font-extrabold tracking-tight text-primary">Orion Lynn</span>
           <span className="text-md text-dark font-bold">Building creative digital experiences</span>
-          <span className="text-xs mt-1 text-orange-700 dark:text-orange-300">&copy; {new Date().getFullYear()} All Rights Reserved</span>
+          <span className="text-xs mt-1 text-primary">&copy; {new Date().getFullYear()} All Rights Reserved</span>
         </div>
         {/* Center: Socials */}
-        <div className="flex gap-4 mt-4 md:mt-0">
+        <div className="flex gap-4 mt-4 md:mt-0 rounded-full ">
           {socials.map(({ href, label, icon }) => (
             <a
               key={label}
@@ -35,7 +35,7 @@ const Footer = () => {
               target="_blank"
               rel="noopener noreferrer"
               aria-label={label}
-              className="rounded-full bg-white/60 dark:bg-dark/60 backdrop-blur-md border border-orange-200 dark:border-orange-800 hover:bg-orange-500 hover:text-white dark:hover:bg-orange-600 transition p-3 shadow-lg"
+              className="rounded-full  backdrop-blur-md bg-light/40 hover:bg-dark/20 border-orange-400 hover:border-primary transition p-3 shadow-lg"
             >
               {icon}
             </a>

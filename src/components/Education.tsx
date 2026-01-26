@@ -12,15 +12,15 @@ interface DetailsProps {
 const Details = ({ type, time, place, info }: DetailsProps) => {
     const ref = useRef<HTMLLIElement>(null);
     return (
-        <li ref={ref} className="my-6 sm:my-8 first:mt-0 last:mb-0 w-[90%] sm:w-[80%] md:w-[70%] lg:w-[60%] mx-auto flex flex-col items-start justify-center">
+        <li ref={ref} className="my-6 sm:my-8 first:mt-0 last:mb-0 w-[90%] sm:w-[80%] md:w-[75%] lg:w-[75%] mx-auto flex flex-col items-start justify-center">
             <div className='hidden lg:block'> <Liicons reference={ref} /></div>
             <motion.div
                 initial={{ y: 50 }}
                 whileInView={{ y: 0 }}
                 transition={{ duration: 0.5, type: 'spring' }}
             >
-                <h3 className="capitalize font-bold text-lg sm:text-xl md:text-2xl lg:text-3xl">{type}</h3>
-                <span className="capitalize font-medium text-dark/75 text-xs sm:text-sm md:text-base lg:text-lg">
+                <h3 className="text-primary capitalize font-bold text-lg sm:text-xl md:text-2xl lg:text-3xl">{type}</h3>
+                <span className="italic capitalize font-medium text-dark/75 text-xs sm:text-sm md:text-base lg:text-lg">
                     {time} | {place}
                 </span>
                 <p className="font-medium w-full text-sm sm:text-base md:text-lg lg:text-xl">{info}</p>
@@ -50,13 +50,13 @@ const Education = () => {
                         type="Bachelor of Science in ICT"
                         time="2022 - 2025"
                         place="Rangsit Internaion College, Thailand"
-                        info="Developing and maintaining web applications."
+                        info="Learned fundamental and advanced concepts in information and communication technology, including programming, networking, and database management."
                     />
                     <Details
                         type="Bachelor of Electrical Engineering (Unfinished)"
                         time="2019 - 2022"
                         place="University of Technology, Mawlamyine"
-                        info="Implemented responsive UI components using React.js and Tailwind CSS."
+                        info="Learned core engineering principles including circuit analysis, signal processing, and electromagnetics."
                     />
                     <Details
                         type="Parami Private High School"

@@ -10,7 +10,7 @@ interface Skill {
 const skills: Skill[] = [
   { title: 'Backend Development', tags: ['Node.js', 'MySQL', 'PostgreSQL', 'REST APIs'] },
   { title: 'Cloud & DevOps', tags: ['AWS ( SAA-C03 certified )', 'Kubernetes', 'CI/CD', 'Docker', 'Linux'] },
-  { title: 'Frontend Development', tags: ['Next.js', 'Tailwind', 'Responsive UX', 'React', 'framer-motion', 'TypeScript'] },
+  { title: 'Frontend Development', tags: ['Next.js', 'Tailwind', 'Responsive UI', 'React', 'framer-motion', 'TypeScript'] },
   { title: 'Shopify/ Wix', tags: ['Liquid', 'Theme Customization', 'E-commerce'] },
 ];
 
@@ -20,8 +20,8 @@ const cardVariants: Variants = {
     opacity: 1,
     y: 0,
     transition: {
-      delay: i * 0.4,
-      duration: 0.8,
+      delay: i * 0.2,
+      duration: 0.6,
       ease: 'easeOut',
     },
   }),

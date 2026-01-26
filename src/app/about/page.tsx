@@ -5,7 +5,7 @@ import Holder from "../../components/Holder";
 import { Andika } from "next/font/google";
 import AnimatedText from "../../components/AnimatedText";
 import Image from "next/image";
-import pf from "../../../public/images/stacks3.png";
+import pf from "../../../public/images/aboutpic.jpeg";
 import { useInView, useMotionValue, useSpring } from "framer-motion";
 import Skills from "../../components/Skills";
 import Experience from "../../components/Experience";
@@ -53,15 +53,15 @@ export default function About() {
                     <AnimatedText text="About Me!" className="mb-8 sm:mb-12 md:mb-16" />
 
                     <div className="flex flex-col gap-8 sm:gap-12 md:gap-16 lg:grid lg:grid-cols-8 lg:gap-16 w-full">
-                        {/* Profile and Text */}
+                    
                         <div className="flex flex-col gap-8 sm:gap-10 md:gap-12 lg:col-span-3 lg:gap-0">
-                            <h2 className="mb-2 sm:mb-3 md:mb-4 text-base sm:text-lg font-bold uppercase text-dark/75">Profile</h2>
+                            <h2 className="mb-2 sm:mb-3 md:mb-4 text-base sm:text-lg md:text-xl font-bold uppercase text-dark">Profile</h2>
                             <p className="font-medium leading-relaxed text-dark text-justify text-sm sm:text-base">
-                                I am a backend developer intern with hands‑on experience across full‑stack development, cloud infrastructure, and e‑commerce platforms. My technical toolkit includes PostgreSQL for database design, Next.js and Tailwind for responsive frontends, and AWS, Kubernetes, and Docker for scalable deployments and CI/CD automation. I lead code reviews with a focus on security and maintainability, and I’m currently preparing for the SAP‑C02 and CKA certifications to deepen my expertise in cloud architecture and Kubernetes troubleshooting. This mix of practical engineering, DevOps fluency, and certification‑driven growth reflects my commitment to building robust, modern systems that deliver real impact.
+                                I am a backend developer  with hands‑on experience across full‑stack development, cloud infrastructure, and e‑commerce platforms. My technical toolkit includes PostgreSQL for database design, Next.js and Tailwind for responsive frontends, and AWS, Kubernetes, and Docker for scalable deployments and CI/CD automation. I lead code reviews with a focus on security and maintainability, and I’m currently preparing for the SAP‑C02 and CKA certifications to deepen my expertise in cloud architecture and Kubernetes troubleshooting. This mix of practical engineering, DevOps fluency, and certification‑driven growth reflects my commitment to building robust, modern systems that deliver real impact.
                             </p>
                         </div>
 
-                        {/* Image */}
+                      
                         <div className="relative h-max rounded-2xl border-2 border-solid border-dark bg-gradient-to-br from-light to-orange-600 p-4 sm:p-6 md:p-8 lg:col-span-3 flex justify-center items-center">
                             <Image src={pf} alt="Orion Lynn" className="w-full h-auto rounded-2xl" />
                         </div>

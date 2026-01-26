@@ -100,19 +100,17 @@ export const Navbar = () => {
                 </nav>
 
                 <nav className="flex items-center">
-                    <motion.a href="/" target="_blank" whileHover={{ y: -2 }} className="w-7 mx-3" whileTap={{ scale: 0.9 }} aria-label="GitHub">
+                    <motion.a href="https://github.com/OrionLynn19" target="_blank" whileHover={{ y: -2 }} className="w-7 mx-3" whileTap={{ scale: 0.9 }} aria-label="GitHub">
                         <GithubIcon />
                     </motion.a>
-                    <motion.a href="/" target="_blank" whileHover={{ y: -2 }} className="w-7 mx-3" whileTap={{ scale: 0.9 }} aria-label="Twitter">
+                    <motion.a href="https://www.instagram.com/orio_nebula?igsh=MWo0eGNoeHB2Z2E2Mg==" target="_blank" whileHover={{ y: -2 }} className="w-7 mx-3" whileTap={{ scale: 0.9 }} aria-label="Twitter">
                         <TwitterIcon />
                     </motion.a>
-                    <motion.a href="/" target="_blank" whileHover={{ y: -2 }} className="w-7 mx-3" whileTap={{ scale: 0.9 }} aria-label="LinkedIn">
+                    <motion.a href="https://www.linkedin.com/in/lin-pyae-hmu-a198802b9/" target="_blank" whileHover={{ y: -2 }} className="w-7 mx-3" whileTap={{ scale: 0.9 }} aria-label="LinkedIn">
                         <LinkedInIcon />
                     </motion.a>
-                    <motion.a href="/" target="_blank" whileHover={{ y: -2 }} className="w-7 mx-3" whileTap={{ scale: 0.9 }} aria-label="Pinterest">
-                        <PinterestIcon />
-                    </motion.a>
-                    <motion.a href="/" target="_blank" whileHover={{ y: -2 }} className="w-7 ml-3" whileTap={{ scale: 0.9 }} aria-label="Dribbble">
+                
+                    <motion.a href="https://www.facebook.com/lynnpyae.hmue.3" target="_blank" whileHover={{ y: -2 }} className="w-7 ml-3" whileTap={{ scale: 0.9 }} aria-label="Dribbble">
                         <DribbbleIcon />
                     </motion.a>
                     <button
@@ -161,9 +159,6 @@ export const Navbar = () => {
                         </motion.a>
                         <motion.a href="/" target="_blank" whileHover={{ y: -2 }} className="w-6 " whileTap={{ scale: 0.9 }} aria-label="LinkedIn">
                             <LinkedInIcon className="fill-light" />
-                        </motion.a>
-                        <motion.a href="/" target="_blank" whileHover={{ y: -2 }} className="w-6 " whileTap={{ scale: 0.9 }} aria-label="Pinterest">
-                            <PinterestIcon className="fill-light" />
                         </motion.a>
                         <motion.a href="/" target="_blank" whileHover={{ y: -2 }} className="w-6 " whileTap={{ scale: 0.9 }} aria-label="Dribbble">
                             <DribbbleIcon className="fill-light" />

@@ -5,7 +5,7 @@ import AnimatedText from "@/src/components/AnimatedText";
 import Holder from "@/src/components/Holder";
 import Image from 'next/image';
 import { motion } from 'framer-motion';
-import { GithubIcon, TwitterIcon, LinkedInIcon } from "@/src/components/icon";
+import { GithubIcon, TwitterIcon, LinkedInIcon, DribbbleIcon } from "@/src/components/icon";
 
 const Contact = () => {
     const [open, setOpen] = useState(false);
@@ -84,7 +84,7 @@ const Contact = () => {
                                         onClick={() => setOpen(v => !v)}
                                         aria-label="Show social links"
                                     >
-                                        <span className="text-light text-xl">+</span>
+                                        <span className="text-orange-400 text-xxl">+</span>
                                     </motion.button>
                                     <motion.div
                                         initial={false}
@@ -96,7 +96,7 @@ const Contact = () => {
                                         className="flex flex-row justify-between items-center  mx-2 overflow-hidden pl-2"
                                     >
                                         <motion.a
-                                            href="https://github.com/"
+                                            href="https://github.com/OrionLynn19"
                                             target="_blank"
                                             rel="noopener noreferrer"
                                             className="mr-3"
@@ -109,7 +109,7 @@ const Contact = () => {
                                             <GithubIcon className="!w-8 !h-8 fill-dark hover:fill-primary transition-colors" />
                                         </motion.a>
                                         <motion.a
-                                            href="https://twitter.com/"
+                                            href="https://www.instagram.com/orio_nebula?igsh=MWo0eGNoeHB2Z2E2Mg=="
                                             target="_blank"
                                             rel="noopener noreferrer"
                                             className="mr-3"
@@ -122,7 +122,7 @@ const Contact = () => {
                                             <TwitterIcon className="!w-8 !h-8 fill-dark hover:fill-primary transition-colors" />
                                         </motion.a>
                                         <motion.a
-                                            href="https://linkedin.com/"
+                                            href="https://www.linkedin.com/in/lin-pyae-hmu-a198802b9/"
                                             target="_blank"
                                             rel="noopener noreferrer"
                                             variants={{
@@ -132,6 +132,18 @@ const Contact = () => {
                                             transition={{ type: "spring", stiffness: 300, damping: 20 }}
                                         >
                                             <LinkedInIcon className="!w-8 !h-8 fill-dark hover:fill-primary transition-colors" />
+                                        </motion.a>
+                                         <motion.a
+                                            href="https://www.facebook.com/lynnpyae.hmue.3"
+                                            target="_blank"
+                                            rel="noopener noreferrer"
+                                            variants={{
+                                                open: { x: 0, opacity: 1 },
+                                                closed: { x: 30, opacity: 0 }
+                                            }}
+                                            transition={{ type: "spring", stiffness: 300, damping: 20 }}
+                                        >
+                                            <DribbbleIcon className="ml-4 !w-8 !h-8 fill-dark hover:fill-primary transition-colors" />
                                         </motion.a>
                                     </motion.div>
                                 </div>

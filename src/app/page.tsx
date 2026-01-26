@@ -12,29 +12,29 @@ import { motion, Variants } from "framer-motion";
 
 const inter = Inter({ subsets: ['latin'] })
 
-const skills = ["Next.js", "AWS", "Docker", "PostgreSQL", "TypeScript", "Kubernetes"];
+const skills = ["Next.js", "AWS", "Docker", "PostgreSQL", "Kubernetes","Git"];
 
 const projects = [
   {
-    title: "E-Commerce Platform",
-    description: "Full-stack Shopify integration with custom Liquid themes",
-    tags: ["Shopify", "Liquid", "Node.js"],
-    link: "/projects",
-    github: "#",
+    title: "Eleva Medical Clinic",
+    description: "Build a cutting-edge medical aesthetics clinic website to enhance online presence and provide information about services.",
+    tags: ["TypeScript", "Next.js", "Tailwind CSS"],
+    link: "https://www.elevaclinic.com",
+    github: "https://github.com/Sprouting-Tech/eleva-clinic",
   },
   {
-    title: "Cloud Infrastructure",
-    description: "AWS deployment with Kubernetes orchestration and CI/CD",
-    tags: ["AWS", "K8s", "Docker"],
-    link: "/projects",
-    github: "#",
+    title: "Bon Appetit Restaurant",
+    description: "Design Menu DB Schema along with CRUD and develop a responsive restaurant website to showcase menu offerings and facilitate online reservations.",
+    tags: ["Supabase", "Framer-motion", "Next.js", ],
+    link: "https://github.com/OrionLynn19/restaurant-bon-appetit",
+    github: "https://github.com/OrionLynn19/restaurant-bon-appetit",
   },
   {
-    title: "Portfolio Website",
-    description: "Responsive Next.js app with Framer Motion animations",
-    tags: ["Next.js", "Tailwind", "Framer"],
-    link: "/projects",
-    github: "#",
+    title: "Ananya Hotel and Resort",
+    description: "Develop responsive glassmorphism UI and implement Room API and database helper functions for a luxury hotel website.",
+    tags: ["Next.js", "Tailwind", "Framer","Supabase","Three.js"],
+    link: "https://github.com/OrionLynn19/ananya_hotel",
+    github: "https://github.com/OrionLynn19/ananya_hotel",
   },
 ];
 
@@ -78,29 +78,54 @@ export default function Home() {
           <div className="flex flex-col items-center w-full">
             
            
-            <div className="flex flex-col lg:flex-row items-center lg:justify-between w-full">
-              <div className="w-full lg:w-1/3 flex flex-col items-center lg:items-start lg:mx-6 lg:-translate-y-4">
-                <p className="text-dark font-bold lg:translate-x-4 text-base lg:text-xl">Yo, My name is</p>
+            <div className="flex flex-col md:flex-row items-center w-full">
+              {/* LEFT: Text */}
+              <div className="w-full md:w-1/2 flex flex-col items-center md:items-start md:pr-8">
+                <p className="text-dark font-bold text-base md:text-2xl xl:text-4xl mb-2 md:mb-4">Hello, My name is</p>
                 <AnimatedText 
                   text="Orion Lynn" 
-                  className="!text-center lg:!text-left leading-tight" 
+                  className=" !text-center md:!text-left leading-tight "
                 />
+                <AnimatedText 
+                  text="A Junior Full-Stack Developer, System Architect, and Tech Enthusiast." 
+                  className="!text-base md:!text-lg lg:!text-3xl leading-relaxed !text-center md:!text-left pl-0 md:pr-10 mt-4"
+                />
+                <motion.div 
+                  className="w-full flex items-center justify-center md:justify-start mt-4"
+                  variants={itemVariants}
+                >
+                  <Link 
+                    href="/resume.pdf"
+                    className="
+                      flex items-center gap-2
+                      bg-dark text-light
+                      px-4 py-2
+                      sm:px-6 sm:py-3
+                      xl:px-6 xl:py-4
+                      rounded-full
+                      text-xs sm:text-sm md:text-sm lg:text-base
+                      font-semibold
+                      hover:bg-light hover:text-dark
+                      active:bg-light active:text-dark
+                      border-2 border-dark
+                      transition-all duration-300
+                      shadow-[0_0_15px_4px_rgba(27,27,27,0.3)]
+                      hover:shadow-[0_0_25px_6px_rgba(234,88,12,0.4)]
+                      mt-4
+                    "
+                  >
+                    View Resume
+                  </Link>
+                </motion.div>
               </div>
-
-              <div className="flex justify-center items-center my-8 lg:my-0">
+              {/* RIGHT: Image */}
+              <div className="w-full h-auto md:w-1/2 xl:w-1/3 md:translate-x-12 flex justify-center items-center my-8 md:my-0 order-first md:order-none">
                 <Image 
                   src={profilepic} 
                   alt="Orion photo" 
                   width={500} 
-                  height={400}
-                  className="rounded-full w-[250px] lg:w-[500px] h-auto"
-                />
-              </div>
-
-              <div className="w-full lg:w-1/3 flex flex-col items-center lg:text-justify">
-                <AnimatedText 
-                  text="A Full-Stack Developer, System Architect, and Tech Enthusiast." 
-                  className="!text-base lg:!text-xl leading-relaxed !text-center lg:!text-justify pl-0 lg:pl-12" 
+                  height={500}
+                  className="rounded-full w-[250px] md:w-[350px] lg:w-[500px] h-auto"
                 />
               </div>
             </div>
@@ -129,7 +154,7 @@ export default function Home() {
                 >
                   <h3 className="text-xl lg:text-2xl font-bold mb-3 lg:mb-4 text-dark">About Me</h3>
                   <p className="text-dark/90 leading-relaxed mb-4 lg:mb-6 text-sm lg:text-base">
-                    I&apos;m a backend developer with hands-on experience across full-stack development, 
+                    I&apos;m a backend developer with hands-on experience across full-stack development, strong theoretical knowledge on
                     cloud infrastructure, and e-commerce platforms. Currently preparing for 
                     <span className="font-bold"> SAP-C02</span> and 
                     <span className="font-bold"> CKA</span> certifications.
