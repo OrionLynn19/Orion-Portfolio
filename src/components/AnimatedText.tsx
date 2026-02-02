@@ -31,7 +31,7 @@ const singleWord = {
         y: 0,
         transition: {
             duration: 1,
-            ease: "easeOut",
+            easing: [0, 0, 0.58, 1],
         }
     }
 }
@@ -50,8 +50,7 @@ const AnimatedText = ({text="", className = ""}: AnimatedTextProps) => {
                         <motion.span 
                             key={word + '-' + index} 
                             className="inline-block" 
-                            variants={singleWord}
-                        >
+                            variants={singleWord} >
                             {word}&nbsp;
                         </motion.span>
                     ))

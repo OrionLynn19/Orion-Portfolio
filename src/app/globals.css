@@ -5,19 +5,19 @@
   --foreground: #171717;
   --color-dark: #1b1b1b;
   --color-light: #f5f5f5;
-  --color-primary: #FEF3C7;
+  --color-primary: #374151;
   --color-primaryDark: #58E6D9;
   --color-orange-400: #fb923c;
   --color-orange-600: 	#ea580c; 
 }
 
-/* When .dark class is on <html>, SWAP the values */
+
 .dark {
-  --color-light: #1b1b1b;  /* light becomes dark */
-  --color-dark: #f5f5f5;   /* dark becomes light */
+  --color-light: #1b1b1b; 
+  --color-dark: #f5f5f5;   
   --color-orange-400: #9a3412 ; 
   --color-orange-600: 	#c2410c ; 
-  --color-primary: #e5cd70; 
+  --color-primary: #FEF3C7; 
 }
 
 @theme inline {
@@ -43,6 +43,11 @@
   to {
     transform: rotate(360deg);
   }
+} ;
+@keyframes gradientShift {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
 }
 
 /* Create utility class */
@@ -55,3 +60,5 @@
 body {
   font-family: 'Space Grotesk', 'Inter', Arial, sans-serif;
 }
+
+

@@ -95,7 +95,8 @@ export default function Home() {
                   variants={itemVariants}
                 >
                   <Link 
-                    href="/resume.pdf"
+                    href="https://drive.google.com/uc?export=download&id=1-R6WyDscV8LnnXLOamQpByKi-fHT0800
+"
                     className="
                       flex items-center gap-2
                       bg-dark text-light
@@ -118,7 +119,7 @@ export default function Home() {
                   </Link>
                 </motion.div>
               </div>
-              {/* RIGHT: Image */}
+            
               <div className="w-full h-auto md:w-1/2 xl:w-1/3 md:translate-x-12 flex justify-center items-center my-8 md:my-0 order-first md:order-none">
                 <Image 
                   src={profilepic} 
@@ -130,7 +131,6 @@ export default function Home() {
               </div>
             </div>
 
-            {/* ===== ABOUT SUMMARY SECTION ===== */}
             <motion.div 
               className="w-full mt-16 lg:mt-24"
               initial="hidden"
@@ -146,7 +146,7 @@ export default function Home() {
               </motion.h2>
 
               <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-8 items-center">
-                {/* About Card */}
+              
                 <motion.div 
                   className="col-span-1 lg:col-span-7 rounded-2xl border border-light/40 bg-gradient-to-br from-light to-orange-600 backdrop-blur-lg p-6 lg:p-8 shadow-lg hover:shadow-[0_0_30px_8px_rgba(234,88,12,0.3)] transition-all duration-300"
                   variants={itemVariants}
@@ -160,7 +160,7 @@ export default function Home() {
                     <span className="font-bold"> CKA</span> certifications.
                   </p>
                   
-                  {/* Skills Pills */}
+                 
                   <div className="flex flex-wrap gap-2 mb-4 lg:mb-6">
                     {skills.map((skill) => (
                       <span 
@@ -180,7 +180,7 @@ export default function Home() {
                   </Link>
                 </motion.div>
 
-                {/* Simple Photo Card */}
+               
                 <motion.div 
                   className="flex items-center justify-center lg:col-span-5 rounded-xl bg-transparent overflow-hidden mix-blend-multiply order-first lg:order-last"
                   variants={itemVariants}
@@ -196,7 +196,7 @@ export default function Home() {
               </div>
             </motion.div>
 
-            {/* ===== PROJECTS SUMMARY SECTION ===== */}
+          
             <motion.div 
               className="w-full mt-20 lg:mt-32"
               initial="hidden"
@@ -225,17 +225,17 @@ export default function Home() {
                     variants={itemVariants}
                     whileHover={{ scale: 1.03, y: -10 }}
                   >
-                    {/* Project Number */}
+                   
                     <span className="absolute -top-4 -right-4 text-[80px] lg:text-[100px] font-bold text-dark/5 group-hover:text-dark/10 transition-colors pr-6">
                       0{i + 1}
                     </span>
 
-                    {/* Content */}
+                 
                     <div className="relative z-10">
                       <h3 className="text-lg lg:text-xl font-bold mb-2 lg:mb-3 text-dark">{project.title}</h3>
                       <p className="text-dark/80 mb-3 lg:mb-4 leading-relaxed text-sm lg:text-base">{project.description}</p>
                       
-                      {/* Tags */}
+                    
                       <div className="flex flex-wrap gap-2 mb-4 lg:mb-6">
                         {project.tags.map((tag) => (
                           <span 
@@ -247,7 +247,7 @@ export default function Home() {
                         ))}
                       </div>
 
-                      {/* Links */}
+                
                       <div className="flex items-center gap-3 lg:gap-4">
                         <Link 
                           href={project.link}
@@ -267,7 +267,7 @@ export default function Home() {
                 ))}
               </div>
 
-              {/* View All Projects Button */}
+             
               <motion.div 
                 className="flex items-center justify-center mt-8 lg:mt-12 px-4"
                 variants={itemVariants}
