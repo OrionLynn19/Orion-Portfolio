@@ -1,0 +1,63 @@
+name: Build and Deploy to ECR
+
+on:
+  push:
+    branches:
+      - main   # Trigger only when pushing to main
+
+jobs:
+  build-and-push:
+    runs-on: ubuntu-latest
+
+    steps:
+      # Step 1: Checkout repo
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      # Step 2: Configure AWS credentials (use GitHub secrets)
+      - name: Configure AWS credentials
+        uses: aws-actions/configure-aws-credentials@v4
+        with:
+          aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+          aws-region: ap-southeast-1
+
+      # Step 3: Login to Amazon ECR
+      - name: Login to Amazon ECR
+        run: |
+          aws ecr get-login-password --region ap-southeast-1 \
+            | docker login --username AWS --password-stdin \
+              376129862109.dkr.ecr.ap-southeast-1.amazonaws.com 
+
+      # Step 4: Build Docker image
+      - name: Build Docker image
+        run: |
+          docker build --platform linux/amd64 -t orion-portfolio:${{ github.sha }} .
+          docker tag orion-portfolio:${{ github.sha }} \
+            376129862109.dkr.ecr.ap-southeast-1.amazonaws.com/orion/portfolio:${{ github.sha }}
+          docker tag orion-portfolio:${{ github.sha }} \
+            376129862109.dkr.ecr.ap-southeast-1.amazonaws.com/orion/portfolio:latest
+
+      # Step 5: Push Docker image to ECR
+      - name: Push Docker image
+        run: |
+          docker push 376129862109.dkr.ecr.ap-southeast-1.amazonaws.com/orion/portfolio:${{ github.sha }}
+          docker push 376129862109.dkr.ecr.ap-southeast-1.amazonaws.com/orion/portfolio:latest
+
+  # Optional: Trigger EC2 refresh (if using ASG)
+  refresh-asg:
+    needs: build-and-push
+    runs-on: ubuntu-latest
+    steps:
+      - name: Configure AWS credentials
+        uses: aws-actions/configure-aws-credentials@v4
+        with:
+          aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+          aws-region: ap-southeast-1
+
+      - name: Force ASG instance refresh
+        run: |
+          aws autoscaling start-instance-refresh \
+            --auto-scaling-group-name Op_asg \
+            --preferences '{"MinHealthyPercentage": 100, "InstanceWarmup": 300}'
