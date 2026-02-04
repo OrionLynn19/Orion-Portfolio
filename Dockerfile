@@ -1,5 +1,5 @@
 # Use official Node.js 20 image as base
-FROM node:20-alpine AS base
+FROM node:20-slim AS base
 
 # Set working directory
 WORKDIR /app
@@ -29,7 +29,8 @@ COPY --from=builder /app/package.json ./package.json
 
 # Next.js requires a non-root user for security
 RUN addgroup --system --gid 1001 nextjs \
-  && adduser --system --uid 1001 nextjs
+&& adduser --system --uid 1001 nextjs
+RUN mkdir -p /app/.next/cache/images && chown -R nextjs:nextjs /app/.next  
 USER nextjs
 
 EXPOSE 3000
