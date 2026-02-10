@@ -1,162 +1,291 @@
+"use client";
 import React from 'react';
-import Holder from '@/src/components/Holder';
+import { motion, useScroll, useTransform } from 'framer-motion';
 import AnimatedText from '@/src/components/AnimatedText';
-import { Metadata } from 'next';
-import Link from 'next/link';
-import Image from 'next/image';
-import { GithubIcon } from '@/src/components/icon';
+import ProjectCard from '@/src/components/ProjectCard';
 
-export const metadata: Metadata = {
-    title: 'Lynn | Projects Page',
-    description: 'Projects Page for Orion Portfolio',
+// Project data
+const projects = [
+    {
+        type: "Aesthetic Medical Clinic",
+        title: "Eleva Clinic",
+        summary: "Eleva Clinic is a cutting-edge medical aesthetics clinic. I took part in developing their website to enhance their online presence and provide information about their services.",
+        img: "/images/eleva.png",
+        link: "https://www.elevaclinic.com",
+        github: "https://github.com/Sprouting-Tech/eleva-clinic",
+        featured: true,
+    },
+    {
+        type: "Three JS",
+        title: "Crossy Road Car Game",
+        img: "/images/cargame.png",
+        link: "https://github.com/OrionLynn19/Car-game-with-three.js",
+        github: "https://github.com/OrionLynn19/Car-game-with-three.js",
+        featured: false,
+    },
+    {
+        type: "Restaurant",
+        title: "Bon Appetit",
+        img: "/images/restaurant.png",
+        link: "https://github.com/OrionLynn19/restaurant-bon-appetit",
+        github: "https://github.com/OrionLynn19/restaurant-bon-appetit",
+        featured: false,
+    },
+    {
+        type: "Luxury Hotel",
+        title: "Ananya Hotel and Resort",
+        summary: "I took part in developing responsive glassmorphism UI and helped in writing Room API and DB helper functions.",
+        img: "/images/hotel_3.png",
+        link: "https://github.com/OrionLynn19/ananya_hotel",
+        github: "https://github.com/OrionLynn19/ananya_hotel",
+        featured: true,
+    },
+    {
+        type: "Shopify E-commerce",
+        title: "Jewelry Shop",
+        img: "/images/shopify.png",
+        link: "https://www.trinketco.com/",
+        github: "https://www.trinketco.com/",
+        featured: false,
+    },
+    {
+        type: "Simple Project",
+        title: "ToDo App",
+        img: "/images/todolist.png",
+        link: "https://github.com/aungthedev/team-todo-list",
+        github: "https://github.com/aungthedev/team-todo-list",
+        featured: false,
+    },
+];
+
+// Parallax floating shapes component
+const ParallaxShapes = () => {
+    const { scrollYProgress } = useScroll();
+    
+    const y1 = useTransform(scrollYProgress, [0, 1], ['0%', '100%']);
+    const y2 = useTransform(scrollYProgress, [0, 1], ['0%', '60%']);
+    const y3 = useTransform(scrollYProgress, [0, 1], ['0%', '40%']);
+    const rotate1 = useTransform(scrollYProgress, [0, 1], [0, 360]);
+    const rotate2 = useTransform(scrollYProgress, [0, 1], [0, -180]);
+
+    return (
+        <div className="fixed inset-0 overflow-hidden pointer-events-none z-0">
+            {/* Large gradient orb - top right */}
+            <motion.div
+                className="absolute w-[700px] h-[700px] rounded-full"
+                style={{
+                    background: 'radial-gradient(circle, rgba(251, 146, 60, 0.15) 4%, transparent 90%)',
+                    top: '-15%',
+                    right: '-10%',
+                    y: y1,
+                }}
+            />
+            
+            {/* Medium gradient orb - bottom left */}
+            <motion.div
+                className="absolute w-[500px] h-[500px] rounded-full"
+                style={{
+                    background: 'radial-gradient(circle, rgba(234, 88, 12, 0.1) 0%, transparent 70%)',
+                    bottom: '10%',
+                    left: '-10%',
+                    y: y2,
+                }}
+            />
+
+            {/* Floating square */}
+            <motion.div
+                className="absolute w-24 h-24 border-2 border-orange-400 rounded-lg"
+                style={{
+                    top: '25%',
+                    left: '8%',
+                    y: y3,
+                    rotate: rotate1,
+                }}
+            />
+
+            {/* Floating circle */}
+            <motion.div
+                className="absolute w-20 h-20 border-2 border-orange-300 rounded-full"
+                style={{
+                    top: '55%',
+                    right: '12%',
+                    y: y2,
+                    rotate: rotate2,
+                }}
+            />
+
+            {/* Small decorative dots */}
+            {[...Array(8)].map((_, i) => (
+                <motion.div
+                    key={i}
+                    className="absolute w-1.5 h-1.5 bg-orange-400 rounded-full"
+                    style={{
+                        top: `${10 + i * 12}%`,
+                        left: `${85 + (i % 3) * 4}%`,
+                        y: useTransform(scrollYProgress, [0, 1], ['0%', `${30 + i * 15}%`]),
+                    }}
+                />
+            ))}
+
+            {/* Diagonal lines */}
+            <motion.div
+                className="absolute w-px h-40 bg-gradient-to-b from-transparent via-orange-400 to-transparent"
+                style={{
+                    top: '35%',
+                    right: '25%',
+                    rotate: 45,
+                    y: y3,
+                }}
+            />
+        </div>
+    );
 };
 
-interface FeaturedProjectProps { 
-    type: string; 
-    title: string; 
-    summary: string; 
-    img: string; 
-    link: string; 
-    github: string 
-} 
-
-interface ProjectProps { 
-    type: string; 
-    title: string; 
-    img: string; 
-    link: string; 
-    github: string 
-}    
-
-const FeaturedProject = ({type, title, summary, img, link, github}: FeaturedProjectProps) => {
+// Page header with enhanced animations
+const PageHeader = () => {
     return (
-        <article className=' w-full  flex flex-col lg:flex-row  items-center justify-between rounded-3xl bg-gradient-to-tr from-orange-400 via-dark-200 to-primary-600   p-6 sm:p-8 md:p-10 lg:p-12 relative '> 
-            <div className="absolute rounded-br-2xl  top-0 -right-2 -bottom-1 -z-10 w-[101%] h-[101%] rounded-[1rem] md:rounded-br-3xl  bg-dark/55 "/>
-            <Link
-                href={link}
-                target='_blank'
-                className='w-full lg:w-1/2 cursor-pointer overflow-hidden rounded-lg relative mb-6 lg:mb-0'
+        <motion.div className="relative pt-16 sm:pt-20 md:pt-24 pb-8 text-center">
+            {/* Background glow behind title */}
+            <motion.div
+                className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-96 h-32 rounded-full blur-xl"
+                style={{
+                    background: 'radial-gradient(ellipse, rgba(251, 146, 60, 0.2) 0%, transparent 70%)',
+                }}
+                animate={{
+                    scale: [1, 1.1, 1],
+                    opacity: [0.5, 0.7, 0.5],
+                }}
+                transition={{
+                    duration: 4,
+                    repeat: Infinity,
+                    ease: 'easeInOut',
+                }}
+            />
+            
+            <AnimatedText
+                text="My Projects"
+                className="relative z-10"
+            />
+            
+            {/* Animated subtitle */}
+            <motion.p
+                className="mt-4 text-ligh text-lg max-w-2xl mx-auto"
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: 0.8, duration: 0.6 }}
             >
-                <div className="relative items-start w-full h-64"> 
-                    <Image src={img} alt={title} fill className='object-fill rounded-lg' />
-                </div>
-            </Link>
-            <div className='w-full lg:w-1/2 flex flex-col items-start justify-between lg:pl-6'>
-                <span className='text-primary font-medium text-lg sm:text-xl'> {type} </span> 
-                <Link href={link} target='_blank' className='hover:underline underline-offset-2' >
-                    <h2 className='my-2 w-full text-dark text-2xl sm:text-3xl lg:text-4xl font-bold '> {title} </h2>
-                </Link>
-                <p className='italic font-bold my-2 font-medium text-dark text-sm sm:text-base'>  {summary} </p>
-                <div className='flex items-center mt-2'>
-                    <Link href={github} target='_blank' className='w-8 sm:w-10' > 
-                        <GithubIcon /> 
-                    </Link>
-                    <Link href={link} target='_blank' 
-                        className='hover:bg-light hover:text-dark ml-4 rounded-lg bg-dark text-light p-2 px-4 sm:px-6 text-base sm:text-lg font-semibold' >
-                        Visit Project
-                    </Link>
-                </div>
-            </div>
-        </article>
-    )
-}
+                A collection of work showcasing my journey in web development
+            </motion.p>
 
-const ProjectsComponent = ({title, type, img, link, github}: ProjectProps) => {
-    return ( 
-        <article className='flex flex-col items-center justify-center rounded-3xl  bg-gradient-to-tr from-orange-400 via-dark-200 to-primary-600 p-4 sm:p-6 md:p-8 relative'> 
-            <div className="absolute top-0 -right-2 -bottom-1  -z-10 w-[101%] h-[101%] rounded-[1rem] rounded-br-2xl md:rounded-[2rem] bg-dark/55 md:rounded-br-3xl"/>
-            <Link href={link} target='_blank' className='w-full cursor-pointer overflow-hidden rounded-lg'>
-                <div className="relative w-full h-54">
-                    <Image src={img} alt={title} fill className='object-fill rounded-lg' />
-                </div>
-            </Link>
-            <div className='w-full flex flex-col items-start justify-between mt-4'> 
-                <span className='text-primary font-medium text-lg sm:text-xl'> {type} </span> 
-                <Link href={link} target='_blank' className='hover:underline underline-offset-2' >
-                    <h2 className='my-2 w-full text-black text-xl sm:text-2xl lg:text-3xl font-bold '> {title} </h2>
-                </Link>
-                <div className='flex items-center mt-2 justify-between w-full'>
-                    <Link href={github} target='_blank' className='w-6 sm:w-8' > 
-                        <GithubIcon />  
-                    </Link>
-                    <Link href={link} target='_blank' 
-                        className='mr-2 text-base text-light hover:text-dark transition-colors sm:text-lg font-semibold hover:underline ' > Visit
-                    </Link>
-                </div>
-            </div>
-        </article>
-    )
-}
+            {/* Animated scroll indicator */}
+            <motion.div
+                className="mt-12 flex flex-col items-center gap-2"
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                transition={{ delay: 1.2 }}
+            >
+                <motion.span
+                    className="text-dark text-sm tracking-widest uppercase"
+                    animate={{ opacity: [0.4, 0.8, 0.4] }}
+                    transition={{ duration: 2, repeat: Infinity }}
+                >
+                    Scroll to explore
+                </motion.span>
+                <motion.div
+                    className="w-6 h-10 rounded-full border-2 border-light/20 flex justify-center pt-2"
+                    animate={{ y: [0, 5, 0] }}
+                    transition={{ duration: 1.5, repeat: Infinity }}
+                >
+                    <motion.div
+                        className="w-1.5 h-1.5 rounded-full bg-orange-400"
+                        animate={{ y: [0, 12, 0], opacity: [1, 0, 1] }}
+                        transition={{ duration: 1.5, repeat: Infinity }}
+                    />
+                </motion.div>
+            </motion.div>
+        </motion.div>
+    );
+};
 
 const Projects = () => {
-    return ( 
-        <main className="w-full mb-8 sm:mb-12 md:mb-16 flex flex-col items-center justify-center"> 
-            <div className="pt-8 sm:pt-12 md:pt-16 w-full h-full inline-block z-0 text-dark p-4 sm:p-8 md:p-16 lg:p-22"> 
-                <AnimatedText
-                    text="My Projects"
-                    className="mb-8 sm:mb-12 md:mb-16"
-                />
-                <div className='grid lg:grid-cols-12 gap-24 gap-y-16 mx-2 my-2  xl:gap-x-16 lg:gap-x-8 '>
-                    <div className='lg:col-span-12 mb-8 lg:mb-0 '>
-                        <FeaturedProject
-                            type="Aesthetic Medical Clinic"
-                            title="Eleva Clinic"
-                            summary="Eleva Clinic is a cutting-edge medical aesthetics clinic. I took part in developing their website to enhance their online presence and provide information about their services."
-                            img="/images/eleva.png"
-                            link="https://www.elevaclinic.com"
-                            github="https://github.com/Sprouting-Tech/eleva-clinic"
+    return (
+        <main className="relative min-h-screen w-full  overflow-hidden">
+            {/* Parallax background shapes */}
+            <ParallaxShapes />
+            
+            {/* Main content */}
+            <div className="relative z-10 w-full max-w-7xl mx-auto px-4 sm:px-8 md:px-12 lg:px-16">
+                <PageHeader />
+                
+                {/* Projects grid */}
+                <motion.div
+                    className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 pb-20"
+                    initial={{ opacity: 0 }}
+                    animate={{ opacity: 1 }}
+                    transition={{ delay: 0.5 }}
+                >
+                    {projects.map((project, index) => (
+                        <ProjectCard
+                            key={project.title}
+                            type={project.type}
+                            title={project.title}
+                            summary={project.summary}
+                            img={project.img}
+                            link={project.link}
+                            github={project.github}
+                            index={index}
+                            featured={project.featured}
                         />
-                    </div>
-                    <div className='lg:col-span-6 mb-8 lg:mb-0'>
-                        <ProjectsComponent
-                            type="Three JS "
-                            title="Crossy Road Car Game"
-                            img="/images/cargame.png"
-                            link="https://github.com/OrionLynn19/Car-game-with-three.js"
-                            github="https://github.com/OrionLynn19/Car-game-with-three.js"
-                        />
-                    </div>
-                    <div className='lg:col-span-6 mb-8 lg:mb-0'>
-                        <ProjectsComponent
-                            type="Restaurant"
-                            title="Bon Appetit"
-                            img="/images/restaurant.png"
-                            link="https://github.com/OrionLynn19/restaurant-bon-appetit"
-                            github="https://github.com/OrionLynn19/restaurant-bon-appetit"
-                        />
-                    </div>
-                    <div className='lg:col-span-12 mb-8 lg:mb-0'>
-                        <FeaturedProject
-                            type="Luxury Hotel"
-                            title="Ananya Hotel and Resort"
-                            summary="I took part in developing responsive glassmorpism UI and helped in writing Room Api and db helper functions"
-                            img="/images/hotel_3.png"
-                            link="https://github.com/OrionLynn19/ananya_hotel"
-                            github="https://github.com/OrionLynn19/ananya_hotel"
-                        />
-                    </div>
-                    <div className='lg:col-span-6'>  
-                        <ProjectsComponent
-                            type="Shopify E-commerce"
-                            title="Jewlery Shop"
-                            img="/images/shopify.png"
-                            link="https://www.trinketco.com/"
-                            github="https://www.trinketco.com/"
-                        />
-                    </div>
-                    <div className='lg:col-span-6'>  
-                        <ProjectsComponent
-                            type="Simple Project"
-                            title="toDo App"
-                            img="/images/todolist.png"
-                            link="https://github.com/aungthedev/team-todo-list"
-                            github="https://github.com/aungthedev/team-todo-list"
-                        />
-                    </div>
-                </div>
+                    ))}
+                </motion.div>
+
+                {/* Footer CTA section */}
+                <motion.div
+                    className="relative py-16 text-center"
+                    initial={{ opacity: 0, y: 40 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true, margin: '-100px' }}
+                    transition={{ duration: 0.8 }}
+                >
+                    <motion.div
+                        className="absolute inset-0 mx-auto w-full max-w-xl h-40 rounded-full blur-3xl"
+                        style={{
+                            background: 'radial-gradient(ellipse, rgba(251, 146, 60, 0.1) 0%, transparent 70%)',
+                        }}
+                    />
+                    
+                    <h3 className="relative text-2xl sm:text-3xl font-bold text-light mb-4">
+                        Interested in working together?
+                    </h3>
+                    <p className="relative text-light/60 mb-8 max-w-md mx-auto">
+                        I&apos;m always open to discussing new projects and creative ideas.
+                    </p>
+                    
+                    <motion.a
+                        href="/contact"
+                        className="relative inline-flex items-center gap-2 px-8 py-4 rounded-full font-semibold text-dark
+                            bg-gradient-to-r from-orange-400 to-orange-500 
+                            hover:from-orange-500 hover:to-orange-400
+                            transition-all duration-300 hover:scale-105 hover:shadow-xl hover:shadow-orange-500/25"
+                        whileHover={{ y: -2 }}
+                        whileTap={{ scale: 0.98 }}
+                    >
+                        Let&apos;s Connect
+                        <motion.svg
+                            className="w-5 h-5"
+                            fill="none"
+                            viewBox="0 0 24 24"
+                            stroke="currentColor"
+                            animate={{ x: [0, 4, 0] }}
+                            transition={{ duration: 1.5, repeat: Infinity }}
+                        >
+                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
+                        </motion.svg>
+                    </motion.a>
+                </motion.div>
             </div>
-        </main> 
-    )
-}
+        </main>
+    );
+};
 
 export default Projects;

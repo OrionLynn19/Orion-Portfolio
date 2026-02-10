@@ -120,7 +120,15 @@ export default function Home() {
                 </motion.div>
               </div>
             
-              <div className="w-full h-auto md:w-1/2 xl:w-1/3 md:translate-x-12 flex justify-center items-center my-8 md:my-0 order-first md:order-none">
+              <motion.div 
+              initial={{ y: 100, scale: 0.5, opacity: 0 }}
+      animate={{ y: 0, scale: 1, opacity: 1 }}
+      transition={{
+        y: { type: "spring", stiffness: 50, damping: 12 },
+        scale: { duration: 1.2, ease: "easeOut" },
+        opacity: { duration: 0.4, ease: "easeOut" }
+      }}
+              className="w-full h-auto md:w-1/2 xl:w-1/3 md:translate-x-12 flex justify-center items-center my-8 md:my-0 order-first md:order-none">
                 <Image 
                   src={profilepic} 
                   alt="Orion photo" 
@@ -128,7 +136,7 @@ export default function Home() {
                   height={500}
                   className="rounded-full w-[250px] md:w-[350px] lg:w-[500px] h-auto"
                 />
-              </div>
+              </motion.div>
             </div>
 
             <motion.div 

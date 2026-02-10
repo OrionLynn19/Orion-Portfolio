@@ -22,8 +22,8 @@ const quote = {
 const singleWord = {
     initial: {
         opacity: 0,
-        x: -75, 
-        y: 0,
+        x: 0, 
+        y: 75,
     }, 
     animate: {
         opacity: 1,
