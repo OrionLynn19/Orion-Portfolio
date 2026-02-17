@@ -1,6 +1,7 @@
 import React, { useRef } from 'react'; 
 import { motion, useScroll } from 'framer-motion';
 import Liicons from './Liicons';
+import AnimatedText from './AnimatedText';
 
 interface DetailsProps {
     type: string;
@@ -37,9 +38,7 @@ const Education = () => {
     });
     return (
         <div className="my-16 sm:my-24 md:my-40 lg:my-64">
-            <h2 className="font-bold text-3xl sm:text-5xl md:text-7xl lg:text-8xl mb-8 sm:mb-16 md:mb-24 lg:mb-32 w-full text-center text-dark/80">
-                Education
-            </h2>
+            <AnimatedText className="mb-16 sm:mb-24 md:mb-40 lg:mb-64 text-center" text="Education" />
             <div ref={first} className="w-[95%] sm:w-[85%] md:w-[80%] lg:w-[75%] mx-auto relative">
                 <motion.div
                     style={{ scaleY: scrollYProgress }}

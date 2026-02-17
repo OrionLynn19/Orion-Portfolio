@@ -12,6 +12,12 @@ interface CustomLinkProps {
     className?: string;
 }
 
+const headerVariants : { [key: string]: any } = { 
+    initial : { x : -150 , opacity : 0 , duration : 0.5 , ease : 'easeOut' },
+    animate : { x : 0, opacity : 1 , transition : { stiffness: 12 , damping :  12 , delay : 0.4 , duration: 0.5 , ease : 'easeIn'}},
+    
+}
+
 const CustomLink = ({ href, title, className = "" }: CustomLinkProps) => {
     const pathname = usePathname();
 
@@ -79,6 +85,7 @@ const CustomMobileLink = ({ href, title, className = "", toggle }: CustomMobileL
     )
 };
 
+
 export const Navbar = () => {
     const [mode, setMode] = useThemeSwitcher();
     const [isOpen, setIsOpen] = React.useState(false);
@@ -88,10 +95,15 @@ export const Navbar = () => {
     }
 
     return (
-        <header className="fixed top-0 z-50 w-full px-32 lg:px-16 md:px-8 max-[768px]:px-6 max-[640px]:px-6 max-[480px]:px-4 py-8 max-[768px]:py-6 max-[640px]:py-6 max-[480px]:py-4 font-medium flex items-center justify-start">
+        <motion.header 
+        variants={headerVariants}
+        initial = "initial" 
+        animate = "animate"
+        
+        className="fixed top-0 z-50 w-full px-32 lg:px-16 md:px-8 max-[768px]:px-6 max-[640px]:px-6 max-[480px]:px-4 py-8 max-[768px]:py-6 max-[640px]:py-6 max-[480px]:py-4 font-medium flex items-center justify-start">
 
             {/* Desktop Navigation Container - Full width */}
-            <div className='relative bg-orange/65 backdrop-blur-lg border border-light/40 rounded-full shadow-lg px-8 py-4 hidden md:flex items-center justify-between w-full'>
+            <div className='relative bg-gray/90 backdrop-blur-md border border-white/90 rounded-full shadow-lg px-8 py-4 hidden md:flex items-center justify-between w-full'>
                 <nav className='flex items-center'>
                     <CustomLink href="/" className="mr-4" title="Home" />
                     <CustomLink href="/about" className="mx-4" title="About" />
@@ -173,7 +185,7 @@ export const Navbar = () => {
                     </nav>
                 </motion.div>
             )}
-        </header>
+        </motion.header>
     )
 }
 

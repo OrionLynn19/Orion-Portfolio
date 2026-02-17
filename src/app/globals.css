@@ -6,11 +6,15 @@
   --color-dark: #1b1b1b;
   --color-dark-200: #1f1f23;
   --color-dark-300: #27272a;
-  --color-light: #f5f5f5;
+  --color-light: #f5f5f5 ; 
   --color-primary: #374151;
   --color-primaryDark: #58E6D9;
   --color-orange-400: #fb923c;
   --color-orange-600: 	#ea580c; 
+ 
+  --color-sand: #F87060 ; 
+  --color-dblue: #102542 ; 
+  --color-gray-400: #9ca3af ; 
 }
 
 
@@ -22,6 +26,9 @@
   --color-orange-400: #9a3412 ; 
   --color-orange-600: 	#c2410c ; 
   --color-primary: #FEF3C7; 
+  --color-sand: #102542 ; 
+  --color-dblue : #F87060 ; 
+  --color-gray-400: #0d0d0d; 
 }
 
 @theme inline {
@@ -39,6 +46,10 @@
   --color-primaryDark: var(--color-primaryDark);
   --color-orange-400: var(--color-orange-400);
   --color-orange-600: var(--color-orange-600);
+  --color-sand: var(--color-sand);
+  --color-dblue: var(--color-dblue);
+  --color-orange: var(--color-orange);
+  --color-gray-400: var(--color-gray-400);
 }
 
 /* Define keyframe animation */

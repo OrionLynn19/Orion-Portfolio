@@ -12,7 +12,7 @@ interface CursorSpotlightProps {
 export const CursorSpotlight = ({
     children,
     className = '',
-    spotlightColor = 'rgba(255, 165, 0, 0.15)',
+    spotlightColor = 'rgba(255, 255, 255, 0.7)',
     spotlightSize = 350,
 }: CursorSpotlightProps) => {
     const containerRef = useRef<HTMLDivElement>(null);

@@ -13,7 +13,7 @@ export const AnimatedBorder = ({
     children,
     className = '',
     borderRadius = '1.5rem',
-    gradientColors = ['#ff6b00', '#ff8533', '#ffa500', '#ffcc00', '#ff8533', '#ff6b00'],
+    gradientColors = [ '#ffffff', '#f5f5f5', '#eeeeee', '#e0e0e0', '#f5f5f5', '#ffffff' ],
     animationDuration = 3,
 }: AnimatedBorderProps) => {
     const gradientString = gradientColors.join(', ');

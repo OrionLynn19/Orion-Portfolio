@@ -23,55 +23,62 @@ export const ParallaxBackground = ({ className = '' }: ParallaxBackgroundProps) 
         <div ref={ref} className={`fixed inset-0 overflow-hidden pointer-events-none ${className}`}>
             {/* Gradient orb 1 */}
             <motion.div
-                className="absolute w-[600px] h-[600px] rounded-full opacity-20"
+                className="absolute w-[600px] h-[600px] rounded-full"
                 style={{
-                    background: 'radial-gradient(circle, rgba(255,165,0,0.4) 0%, transparent 70%)',
+                    backgroundImage: 'radial-gradient(circle, #ffffff 0%, transparent 70%)',
                     top: '-10%',
                     right: '-10%',
                     y: y1,
                     rotate: rotate1,
+                    opacity: 0.3,
                 }}
             />
             
             {/* Gradient orb 2 */}
             <motion.div
-                className="absolute w-[400px] h-[400px] rounded-full opacity-15"
+                className="absolute w-[400px] h-[400px] rounded-full"
                 style={{
-                    background: 'radial-gradient(circle, rgba(255,100,0,0.3) 0%, transparent 70%)',
+                    backgroundImage: 'radial-gradient(circle, #ffffff 0%, transparent 70%)',
                     bottom: '20%',
                     left: '-5%',
                     y: y2,
+                    opacity: 0.25,
                 }}
             />
 
-            {/* Floating geometric shape 1 */}
+            {/* Floating geometric shape 1 - white square */}
             <motion.div
-                className="absolute w-20 h-20 border-2 border-orange-400/20"
+                className="absolute w-20 h-20"
                 style={{
                     top: '20%',
                     left: '10%',
                     y: y3,
                     rotate: rotate1,
+                    border: '2px solid #ffffff',
+                    backgroundColor: 'transparent',
                 }}
             />
 
-            {/* Floating geometric shape 2 */}
+            {/* Floating geometric shape 2 - white circle */}
             <motion.div
-                className="absolute w-16 h-16 border-2 border-orange-300/15 rounded-full"
+                className="absolute w-16 h-16 rounded-full"
                 style={{
                     top: '60%',
                     right: '15%',
                     y: y2,
                     rotate: rotate2,
+                    border: '2px solid #ffffff',
+                    backgroundColor: 'transparent',
                 }}
             />
 
-            {/* Small dots */}
+            {/* Small white dots */}
             {[...Array(6)].map((_, i) => (
                 <motion.div
                     key={i}
-                    className="absolute w-2 h-2 bg-orange-400/30 rounded-full"
+                    className="absolute w-2 h-2 rounded-full"
                     style={{
+                        backgroundColor: '#ffffff',
                         top: `${15 + i * 15}%`,
                         left: `${80 + (i % 3) * 5}%`,
                         y: useTransform(scrollYProgress, [0, 1], ['0%', `${40 + i * 10}%`]),

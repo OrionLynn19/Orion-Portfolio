@@ -62,7 +62,7 @@ export default function About() {
                         </div>
 
                       
-                        <div className="relative h-max rounded-2xl border-2 border-solid border-dark bg-gradient-to-br from-light to-orange-600 p-4 sm:p-6 md:p-8 lg:col-span-3 flex justify-center items-center">
+                        <div className="relative h-max rounded-2xl border-2 border-solid border-dark bg-gradient-to-br from-light to-grey-600 p-4 sm:p-6 md:p-8 lg:col-span-3 flex justify-center items-center">
                             <Image src={pf} alt="Orion Lynn" className="w-full h-auto rounded-2xl" />
                         </div>
 

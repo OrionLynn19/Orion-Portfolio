@@ -74,7 +74,7 @@ const ParallaxShapes = () => {
             <motion.div
                 className="absolute w-[700px] h-[700px] rounded-full"
                 style={{
-                    background: 'radial-gradient(circle, rgba(251, 146, 60, 0.15) 4%, transparent 90%)',
+                    background: 'radial-gradient(circle, rgba(255, 255, 255, 0.15) 4%, transparent 90%)',
                     top: '-15%',
                     right: '-10%',
                     y: y1,
@@ -85,7 +85,7 @@ const ParallaxShapes = () => {
             <motion.div
                 className="absolute w-[500px] h-[500px] rounded-full"
                 style={{
-                    background: 'radial-gradient(circle, rgba(234, 88, 12, 0.1) 0%, transparent 70%)',
+                    background: 'radial-gradient(circle, rgba(255, 255, 255, 0.1) 0%, transparent 70%)',
                     bottom: '10%',
                     left: '-10%',
                     y: y2,
@@ -94,23 +94,25 @@ const ParallaxShapes = () => {
 
             {/* Floating square */}
             <motion.div
-                className="absolute w-24 h-24 border-2 border-orange-400 rounded-lg"
+                className="absolute w-30 h-30 rounded-lg"
                 style={{
                     top: '25%',
                     left: '8%',
                     y: y3,
                     rotate: rotate1,
+                    border: '2px solid rgba(255, 255, 255, 0.5)',
                 }}
             />
 
             {/* Floating circle */}
             <motion.div
-                className="absolute w-20 h-20 border-2 border-orange-300 rounded-full"
+                className="absolute w-20 h-20 rounded-full"
                 style={{
                     top: '55%',
                     right: '12%',
                     y: y2,
                     rotate: rotate2,
+                    border: '2px solid rgba(255, 255, 255, 0.4)',
                 }}
             />
 
@@ -118,8 +120,9 @@ const ParallaxShapes = () => {
             {[...Array(8)].map((_, i) => (
                 <motion.div
                     key={i}
-                    className="absolute w-1.5 h-1.5 bg-orange-400 rounded-full"
+                    className="absolute w-2 h-2 rounded-full"
                     style={{
+                        backgroundColor: 'rgba(255, 255, 255, 0.8)',
                         top: `${10 + i * 12}%`,
                         left: `${85 + (i % 3) * 4}%`,
                         y: useTransform(scrollYProgress, [0, 1], ['0%', `${30 + i * 15}%`]),
@@ -129,8 +132,9 @@ const ParallaxShapes = () => {
 
             {/* Diagonal lines */}
             <motion.div
-                className="absolute w-px h-40 bg-gradient-to-b from-transparent via-orange-400 to-transparent"
+                className="absolute w-px h-40"
                 style={{
+                    background: 'linear-gradient(to bottom, transparent, rgba(255, 255, 255, 0.5), transparent)',
                     top: '35%',
                     right: '25%',
                     rotate: 45,
@@ -149,7 +153,7 @@ const PageHeader = () => {
             <motion.div
                 className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-96 h-32 rounded-full blur-xl"
                 style={{
-                    background: 'radial-gradient(ellipse, rgba(251, 146, 60, 0.2) 0%, transparent 70%)',
+                    background: 'radial-gradient(ellipse, rgba(255, 255, 255, 1) 1%, transparent 70%)',
                 }}
                 animate={{
                     scale: [1, 1.1, 1],
@@ -192,12 +196,12 @@ const PageHeader = () => {
                     Scroll to explore
                 </motion.span>
                 <motion.div
-                    className="w-6 h-10 rounded-full border-2 border-light/20 flex justify-center pt-2"
+                    className="w-6 h-10 rounded-full border-2 border-dark/20 flex justify-center pt-2"
                     animate={{ y: [0, 5, 0] }}
                     transition={{ duration: 1.5, repeat: Infinity }}
                 >
                     <motion.div
-                        className="w-1.5 h-1.5 rounded-full bg-orange-400"
+                        className="w-1.5 h-1.5 rounded-full bg-white font-bold"
                         animate={{ y: [0, 12, 0], opacity: [1, 0, 1] }}
                         transition={{ duration: 1.5, repeat: Infinity }}
                     />
@@ -254,19 +258,19 @@ const Projects = () => {
                         }}
                     />
                     
-                    <h3 className="relative text-2xl sm:text-3xl font-bold text-light mb-4">
+                    <h3 className="relative text-2xl sm:text-3xl font-bold text-dark mb-4">
                         Interested in working together?
                     </h3>
-                    <p className="relative text-light/60 mb-8 max-w-md mx-auto">
+                    <p className="relative text-dark mb-8 max-w-md mx-auto">
                         I&apos;m always open to discussing new projects and creative ideas.
                     </p>
                     
                     <motion.a
                         href="/contact"
                         className="relative inline-flex items-center gap-2 px-8 py-4 rounded-full font-semibold text-dark
-                            bg-gradient-to-r from-orange-400 to-orange-500 
-                            hover:from-orange-500 hover:to-orange-400
-                            transition-all duration-300 hover:scale-105 hover:shadow-xl hover:shadow-orange-500/25"
+                            bg-gradient-to-r from-dark/60 to-dark/20 
+                            hover:bg-dark/90 hover:text-light
+                            transition-all duration-300 hover:scale-110 hover:shadow-xl hover:shadow-dark/20"
                         whileHover={{ y: -2 }}
                         whileTap={{ scale: 0.98 }}
                     >

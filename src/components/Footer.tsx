@@ -18,7 +18,7 @@ const socials = [
 
 const Footer = () => {
   return (
-    <footer className="w-full  py-10 px-4 mt-16  border-orange-200 dark:border-orange-900/40">
+    <footer className="w-full  py-10 px-4 mt-16 border-1 border-white/90 backdrop-blur-md ">
       <div className="max-w-6xl mx-auto flex flex-col gap-8 md:gap-0 md:flex-row items-center justify-between">
         {/* Left: Tagline and copyright */}
         <div className="flex flex-col items-center md:items-start gap-2">
@@ -35,17 +35,17 @@ const Footer = () => {
               target="_blank"
               rel="noopener noreferrer"
               aria-label={label}
-              className="rounded-full  backdrop-blur-md bg-light/40 hover:bg-dark/20 border-orange-400 hover:border-primary transition p-3 shadow-lg"
+              className="rounded-full  backdrop-blur-md bg-light hover:bg-dark/30 hover:scale-120 hover:border-2  hover:border-primary transition-all duration-200 ease-in p-3 shadow-lg"
             >
               {icon}
             </a>
           ))}
         </div>
         {/* Right: Back to Top */}
-        <div className="mt-6 md:mt-0">
+        <div className="mt-6 md:mt-0 md:mr-8 hover:scale-125 transition-all duration-300">
           <button
             onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
-            className="flex items-center gap-2 px-5 py-2 bg-orange-500/90 text-white rounded-full font-semibold shadow-lg hover:bg-orange-600 transition border border-orange-200 dark:border-orange-800"
+            className="flex items-center gap-2 px-5 py-2 bg-primary text-light rounded-full font-semibold shadow-lg hover:bg-primary/90 transition border-2 border-white "
             aria-label="Back to top"
           >
             <svg className="w-4 h-4" fill="none" stroke="currentColor" strokeWidth={2} viewBox="0 0 24 24">

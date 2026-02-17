@@ -112,8 +112,8 @@ export const ProjectCard = ({
         >
             <motion.div
                 className={`relative ${featured ? 'flex flex-col lg:flex-row items-center' : 'flex flex-col'} 
-                    rounded-3xl overflow-hidden bg-gradient-to-tr from orange-400 via-light/20 to orange-600 
-                    border border-white/5`}
+                    rounded-3xl overflow-hidden bg-gradient-to-tr from-grey-100 via-light to-grey-500 
+                    border border-gray-200`}
                 style={{
                     transform: `perspective(1000px) rotateX(${tilt.rotateX}deg) rotateY(${tilt.rotateY}deg)`,
                     transition: 'transform 0.15s ease-out',
@@ -124,8 +124,9 @@ export const ProjectCard = ({
                 <motion.div
                     className="absolute inset-0 rounded-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-500"
                     style={{
-                        background: `linear-gradient(90deg, #ff6b00, #ff8533, #ffa500, #ffcc00, #ff8533, #ff6b00)`,
+                        backgroundImage: 'linear-gradient(90deg, #e5e7eb, #d1d5db, #9ca3af, #d1d5db, #e5e7eb)',
                         backgroundSize: '300% 100%',
+                        backgroundPosition: '0% 50%',
                         padding: '2px',
                         WebkitMask: 'linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0)',
                         WebkitMaskComposite: 'xor',
@@ -146,16 +147,16 @@ export const ProjectCard = ({
                     className="absolute inset-0 rounded-3xl pointer-events-none z-10"
                     style={{
                         background: isHovering
-                            ? `radial-gradient(450px circle at ${mousePos.x}px ${mousePos.y}px, rgba(255, 165, 0, 0.1), transparent 60%)`
+                            ? `radial-gradient(450px circle at ${mousePos.x}px ${mousePos.y}px, rgba(255, 255, 255, 0.4), transparent 60%)`
                             : 'none',
                     }}
                 />
 
                 {/* Glow effect */}
                 <motion.div
-                    className="absolute -inset-1 rounded-3xl opacity-0 group-hover:opacity-60 transition-opacity duration-500 blur-xl -z-10"
+                    className="absolute -inset-1 rounded-3xl opacity-0 group-hover:opacity-40 transition-opacity duration-500 blur-xl -z-10"
                     style={{
-                        background: 'linear-gradient(135deg, rgba(255, 130, 0, 0.3), rgba(255, 80, 0, 0.2))',
+                        background: 'linear-gradient(135deg, rgba(255, 255, 255, 0.8), rgba(200, 200, 200, 0.5))',
                     }}
                 />
 
@@ -214,7 +215,10 @@ export const ProjectCard = ({
                     >
                         {type}
                         <motion.span
-                            className="absolute -bottom-1 left-0 h-0.5 bg-gradient-to-r from-orange-500 to-orange-300"
+                            className="absolute -bottom-1 left-0 h-0.5"
+                            style={{
+                                background: 'linear-gradient(to right, #374151, #6b7280)',
+                            }}
                             initial={{ width: 0 }}
                             animate={isInView ? { width: '100%' } : { width: 0 }}
                             transition={{ delay: index * 0.15 + 0.6, duration: 0.5 }}
@@ -258,19 +262,20 @@ export const ProjectCard = ({
                             href={github}
                             target="_blank"
                             className="relative group/btn w-10 h-10 flex items-center justify-center rounded-full 
-                                border border-light/20 hover:border-primary transition-all duration-300
+                                border border-gray-300 hover:border-gray-500 transition-all duration-300
                                 hover:scale-110"
                         >
-                            <GithubIcon className="w-5 h-5 text-light group-hover/btn:text-primary transition-colors" />
+                            <GithubIcon className="w-5 h-5 text-gray-600 group-hover/btn:text-gray-900 transition-colors" />
                         </Link>
 
                         {/* Visit button with animated background */}
                         <Link
                             href={link}
                             target="_blank"
-                            className="relative overflow-hidden px-6 py-2.5 rounded-full font-semibold text-dark
-                                bg-gradient-to-r from-orange-400 to-orange-500 hover:from-orange-500 hover:to-orange-400
-                                transition-all duration-300 hover:scale-105 hover:shadow-lg hover:shadow-orange-500/25"
+                            className="relative overflow-hidden px-6 py-2.5 rounded-full font-semibold text-gray-800
+                                bg-gradient-to-r from-gray-200 to-gray-300 hover:from-gray-300 hover:to-gray-200
+                                transition-all duration-300 hover:scale-105 hover:shadow-lg hover:shadow-gray-400/25
+                                border border-gray-300"
                         >
                             <span className="relative z-10">
                                 {featured ? 'Visit Project' : 'Visit'}

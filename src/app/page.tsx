@@ -6,9 +6,12 @@ import AnimatedText from "../components/AnimatedText";
 import Link from "next/link"; 
 import { LinkArrow, GithubIcon } from "../components/icon";
 import Hireme from "../components/Hireme"; 
-import profilepic from "../../public/images/dev-pic-1].png";
+import profilepic from "../../public/images/balck.jpg";
 import aboutpic from "../../public/images/pf4.png";
 import { motion, Variants } from "framer-motion";
+import Bgvideo from "../components/Bgvideo"; 
+import { useState } from "react"; 
+
 
 const inter = Inter({ subsets: ['latin'] })
 
@@ -52,7 +55,7 @@ const containerVariants: Variants = {
 };
 
 const itemVariants: Variants = {
-  hidden: { opacity: 0, y: 30 },
+  hidden: { opacity: 0, y: 100 },
   visible: {
     opacity: 1,
     y: 0,
@@ -73,7 +76,11 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
+      
+      
       <main className='flex flex-col items-center text-dark w-full min-h-screen'> 
+
+        
         <div className="pt-0 w-full h-full inline-block z-0 p-8 md:pt-12 lg:p-28 lg:pt-16">
           <div className="flex flex-col items-center w-full">
             
@@ -111,7 +118,7 @@ export default function Home() {
                       border-2 border-dark
                       transition-all duration-300
                       shadow-[0_0_15px_4px_rgba(27,27,27,0.3)]
-                      hover:shadow-[0_0_25px_6px_rgba(234,88,12,0.4)]
+                      hover:shadow-[0_0_25px_6px_rgba(255,255,255,0.4)]
                       mt-4
                     "
                   >
@@ -129,13 +136,14 @@ export default function Home() {
         opacity: { duration: 0.4, ease: "easeOut" }
       }}
               className="w-full h-auto md:w-1/2 xl:w-1/3 md:translate-x-12 flex justify-center items-center my-8 md:my-0 order-first md:order-none">
-                <Image 
+                 <Image 
                   src={profilepic} 
                   alt="Orion photo" 
-                  width={500} 
-                  height={500}
+                  width={400} 
+                  height={400}
                   className="rounded-full w-[250px] md:w-[350px] lg:w-[500px] h-auto"
-                />
+                /> 
+               
               </motion.div>
             </div>
 
@@ -146,17 +154,17 @@ export default function Home() {
               viewport={{ once: true, amount: 0.2 }}
               variants={containerVariants}
             >
-              <motion.h2 
-                className="text-3xl lg:text-5xl font-bold text-center mb-8 lg:mb-12"
-                variants={itemVariants}
-              >
-                Who Am I?
-              </motion.h2>
+              
+              <AnimatedText 
+                text="So Who Am I" 
+                className="text-xl  font-bold text-center mb-8 lg:mb-12"
+              />
+             
 
               <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-8 items-center">
               
                 <motion.div 
-                  className="col-span-1 lg:col-span-7 rounded-2xl border border-light/40 bg-gradient-to-br from-light to-orange-600 backdrop-blur-lg p-6 lg:p-8 shadow-lg hover:shadow-[0_0_30px_8px_rgba(234,88,12,0.3)] transition-all duration-300"
+                  className="col-span-1 lg:col-span-7 rounded-2xl border border-light/40 bg-gradient-to-br from-light to-grey-600 backdrop-blur-lg p-6 lg:p-8 shadow-lg hover:shadow-[0_0_30px_8px_grey/90] transition-all duration-300"
                   variants={itemVariants}
                   whileHover={{ scale: 1.02 }}
                 >
@@ -192,7 +200,7 @@ export default function Home() {
                 <motion.div 
                   className="flex items-center justify-center lg:col-span-5 rounded-xl bg-transparent overflow-hidden mix-blend-multiply order-first lg:order-last"
                   variants={itemVariants}
-                  whileHover={{ scale: 1.02 }}
+                  whileHover={{ scale: 1.1 }}
                 >
                   <Image
                     src={aboutpic}
@@ -229,7 +237,7 @@ export default function Home() {
                 {projects.map((project, i) => (
                   <motion.div
                     key={project.title}
-                    className="group relative rounded-2xl border border-light/40 bg-gradient-to-br from-light via-light to-orange-400 backdrop-blur-lg p-5 lg:p-6 shadow-lg hover:shadow-[0_0_30px_8px_rgba(234,88,12,0.3)] transition-all duration-300 overflow-hidden"
+                    className="group relative rounded-2xl border border-light/40 bg-gradient-to-br from-light via-light to-grey-400 backdrop-blur-lg p-5 lg:p-6 shadow-lg hover:shadow-[0_0_30px_8px_grey] transition-all duration-200 overflow-hidden"
                     variants={itemVariants}
                     whileHover={{ scale: 1.03, y: -10 }}
                   >
@@ -282,7 +290,7 @@ export default function Home() {
               >
                 <Link 
                   href="/projects"
-                  className="flex items-center gap-2 bg-dark text-light px-6 lg:px-8 py-3 lg:py-4 rounded-full text-xs lg:text-sm font-semibold hover:bg-light hover:text-dark active:bg-light active:text-dark border-2 border-dark transition-all duration-300 shadow-[0_0_15px_4px_rgba(27,27,27,0.3)] hover:shadow-[0_0_25px_6px_rgba(234,88,12,0.4)]"
+                  className="flex items-center gap-2 bg-dark text-light px-6 lg:px-8 py-3 lg:py-4 rounded-full text-xs lg:text-sm font-semibold hover:bg-light hover:text-dark active:bg-light active:text-dark border-2 border-dark transition-all duration-300 shadow-[0_0_15px_4px_rgba(27,27,27,0.3)] hover:shadow-[0_0_25px_6px_rgba(0,0,0,0.4)]"
                 >
                   View Projects <LinkArrow className="!w-5 lg:!w-6" />
                 </Link>

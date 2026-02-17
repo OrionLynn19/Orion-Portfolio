@@ -157,7 +157,7 @@ const Contact = () => {
                         animate={{ opacity: 1, x: 0 }}
                         transition={{ duration: 0.8, delay: 0.2 }}
                     >
-                        <div className="bg-gradient-to-br from-light to-orange-600 border border-solid border-dark rounded-xl p-4 sm:p-6 md:p-8 relative">
+                        <div className="bg-gradient-to-br from-light to-grey-600 border border-solid border-dark rounded-xl p-4 sm:p-6 md:p-8 relative">
                             
                             <form className="space-y-4 sm:space-y-6 " onSubmit={submitForm}>
                         
@@ -226,7 +226,7 @@ const Contact = () => {
                                 </div>
                                 <motion.button
                                     type="submit"
-                                    className="w-full bg-dark text-light py-3 sm:py-4 px-6 sm:px-8 rounded-xl font-bold text-base sm:text-lg hover:bg-primary transition-colors border-2 border-solid border-transparent hover:border-dark hover:bg-light hover:text-dark"
+                                    className="w-full bg-dark text-light py-3 sm:py-4 px-6 sm:px-8 rounded-xl font-bold text-base sm:text-lg hover:bg-light transition-colors border-2 border-solid border-transparent hover:border-dark hover:bg-light hover:text-dark"
                                     whileHover={{ scale: 1.02 }}
                                     whileTap={{ scale: 0.98 }}
                                 >
