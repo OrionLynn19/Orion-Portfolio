@@ -102,8 +102,7 @@ export default function Home() {
                   variants={itemVariants}
                 >
                   <Link 
-                    href="https://drive.google.com/uc?export=download&id=1-R6WyDscV8LnnXLOamQpByKi-fHT0800
-"
+                    href="https://drive.google.com/uc?export=download&id=1JcXMJiyEG3nDvyxHZUmVx7k4nzuP5FX2"
                     className="
                       flex items-center gap-2
                       bg-dark text-light
