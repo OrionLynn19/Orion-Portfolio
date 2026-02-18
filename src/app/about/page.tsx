@@ -62,11 +62,11 @@ export default function About() {
                         </div>
 
                       
-                        <div className="relative h-max rounded-2xl border-2 border-solid border-dark bg-gradient-to-br from-light to-grey-600 p-4 sm:p-6 md:p-8 lg:col-span-3 flex justify-center items-center">
-                            <Image src={pf} alt="Orion Lynn" className="w-full h-auto rounded-2xl" />
+                        <div className="z-30 relative w-full h-full backdrop-blur-md rounded-xl border-2 border-solid border-dark bg-gray/90 backdrop-blur-lg border-2 border-white/90  shadow-xl p-4 sm:p-6 md:p-8 lg:col-span-3 flex justify-center items-center">
+                            <Image src={pf} alt="Orion Lynn" className="w-full h-auto  rounded-full mix-blend-multiply opacity-90" />
                         </div>
 
-                        {/* Stats */}
+                       
                         <div className="flex flex-row justify-between items-center gap-4 sm:gap-8 md:gap-12 lg:flex-col lg:col-span-2 lg:items-end lg:justify-between">
                             <div className="flex flex-col items-center lg:items-end justify-center">
                                 <span className="inline-block font-bold text-4xl sm:text-5xl md:text-6xl lg:text-7xl">

@@ -9,8 +9,8 @@ interface Skill {
 
 const skills: Skill[] = [
   { title: 'Backend Development', tags: ['Node.js', 'MySQL', 'PostgreSQL', 'REST APIs'] },
-  { title: 'Cloud & DevOps', tags: ['AWS ( SAA-C03 certified )', 'Kubernetes', 'CI/CD', 'Docker', 'Linux'] },
-  { title: 'Frontend Development', tags: ['Next.js', 'Tailwind', 'Responsive UI', 'React', 'framer-motion', 'TypeScript'] },
+  { title: 'Cloud & DevOps', tags: ['AWS ( SAA-C03 certified )', 'Kubernetes', 'Github Actions', 'Docker', 'Linux'] },
+  { title: 'Frontend Development', tags: ['Next.js', 'Tailwind', 'GSAP', 'framer-motion', 'TypeScript'] },
   { title: 'Shopify/ Wix', tags: ['Liquid', 'Theme Customization', 'E-commerce'] },
 ];
 
