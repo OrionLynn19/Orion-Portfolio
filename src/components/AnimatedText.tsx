@@ -1,61 +1,104 @@
 "use client";
-import { motion } from 'framer-motion';
+import gsap from 'gsap';
+import { SplitText } from 'gsap/SplitText';
+import { useRef } from 'react';
+import { useGSAP } from '@gsap/react';
 
-interface AnimatedTextProps { 
-    text: string; 
-    className?: string; 
+gsap.registerPlugin(SplitText);
+
+interface AnimatedTextProps {
+    text: string;
+    className?: string;
 }
 
-const quote = {
-    initial: {
-        opacity: 1,
-    }, 
-    animate: {
-        opacity: 1,
-        transition: {
-            delay: 0.5,
-            staggerChildren: 0.08,
+const AnimatedText = ({ text = "", className = "" }: AnimatedTextProps) => {
+    const textRef = useRef<HTMLHeadingElement>(null);
+    const splitRef = useRef<SplitText | null>(null);
+    const tlRef = useRef<gsap.core.Timeline | null>(null);
+    const hasLoaded = useRef(false);
+
+    // Initial load animation
+    useGSAP(() => {
+        if (!textRef.current) return;
+
+        splitRef.current = new SplitText(textRef.current, { type: "chars" });
+
+        splitRef.current.chars.forEach((char) => {
+            gsap.set(char, {
+                display: "inline-block",
+                transformOrigin: "center bottom",
+            });
+        });
+
+        gsap.from(splitRef.current.chars, {
+            rotationX: -90,
+            y: 50,
+            opacity: 0,
+            stagger: {
+                each: 0.06,
+                from: "start",
+            },
+            ease: "back.out(1.7)",
+            duration: 0.8,
+            onComplete: () => {
+                hasLoaded.current = true;
+            },
+        });
+    }, { scope: textRef });
+
+    const handleMouseEnter = () => {
+        if (!splitRef.current || !hasLoaded.current) return;
+
+        // Kill previous animation
+        if (tlRef.current) {
+            tlRef.current.kill();
         }
-    }
-}
 
-const singleWord = {
-    initial: {
-        opacity: 0,
-        x: -75, 
-        y: 0,
-    }, 
-    animate: {
-        opacity: 1,
-        x: 0,
-        y: 0,
-        transition: {
-            duration: 1,
-            easing: [0, 0, 0.58, 1],
+        tlRef.current = gsap.timeline();
+
+        tlRef.current.to(splitRef.current.chars, {
+            rotationX: -360,
+            y: -10,
+            stagger: {
+                each: 0.08,
+                from: "start",
+            },
+            ease: "power4.inOut",
+            duration: 0.4,
+        });
+    };
+
+    const handleMouseLeave = () => {
+        if (!splitRef.current || !hasLoaded.current) return;
+
+        if (tlRef.current) {
+            tlRef.current.kill();
         }
-    }
-}
 
-const AnimatedText = ({text="", className = ""}: AnimatedTextProps) => {
-    return ( 
-        <div className="w-full mx-auto py-1 md:py-2 flex items-center justify-center text-center overflow-hidden">
-            <motion.h1 
-                className={`inline-block w-full text-dark font-bold text-4xl sm:text-5xl  xl:text-8xl ${className}`} 
-                variants={quote} 
-                initial="initial" 
-                animate="animate"
-            > 
-                {
-                    text.split(" ").map((word, index) => (
-                        <motion.span 
-                            key={word + '-' + index} 
-                            className="inline-block" 
-                            variants={singleWord} >
-                            {word}&nbsp;
-                        </motion.span>
-                    ))
-                }
-            </motion.h1>
+        // Reset characters back to normal
+        gsap.to(splitRef.current.chars, {
+            rotationX: 0,
+            y: 0,
+            stagger: {
+                each: 0.03,
+                from: "end",
+            },
+            ease: "power2.out",
+            duration: 0.4,
+        });
+    };
+
+    return (
+        <div className="w-full mx-auto py-1 md:py-2 flex items-center justify-center text-center overflow-hidden perspective-500">
+            <h1
+                ref={textRef}
+                onMouseEnter={handleMouseEnter}
+                onMouseLeave={handleMouseLeave}
+                className={`inline-block w-full text-dark font-bold text-4xl sm:text-5xl xl:text-8xl cursor-crosshair ${className}`}
+                style={{ perspective: "500px" }}
+            >
+                {text}
+            </h1>
         </div>
     );
 }

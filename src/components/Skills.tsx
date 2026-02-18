@@ -21,8 +21,8 @@ const cardVariants: Variants = {
     y: 0,
     transition: {
       delay: i * 0.2,
-      duration: 0.6,
-      ease: 'easeOut',
+      duration: 0.4,
+      ease: 'easeInOut',
     },
   }),
 };
@@ -75,7 +75,7 @@ export default function Skills() {
               `}
             >
              
-              <div className="rounded-2xl border border-light/40 bg-gradient-to-br from-light to-orange-600 backdrop-blur-lg p-4 sm:p-5 md:p-6 lg:p-6 shadow-lg hover:shadow-[0_0_25px_6px_rgba(234,88,12,0.3)] hover:scale-[1.02] transition-all duration-300">
+              <div className="rounded-2xl border border-light/40 bg-gradient-to-br from-light to-gray/40 backdrop-blur-lg p-4 sm:p-5 md:p-6 lg:p-6 shadow-lg hover:shadow-[0_0_25px_6px_rgba(255,255,255,0.3)] hover:scale-[1.02] transition-all duration-300">
                 <h3 className="text-lg sm:text-xl font-bold text-dark">
                   {skill.title}
                 </h3>
@@ -88,7 +88,7 @@ export default function Skills() {
                   {skill.tags.map((tag) => (
                     <li
                       key={tag}
-                      className="rounded-full bg-light/70 backdrop-blur-sm px-2 sm:px-3 py-1 text-xs sm:text-sm font-medium text-dark border border-light/40 hover:bg-dark hover:text-light transition-colors duration-200"
+                      className="rounded-full bg-white/20 backdrop-blur-sm px-2 sm:px-3 py-1 text-xs sm:text-sm font-medium text-dark border border-light/40 hover:bg-dark hover:text-light transition-colors duration-200"
                     >
                       {tag}
                     </li>
