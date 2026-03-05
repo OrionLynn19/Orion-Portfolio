@@ -15,9 +15,17 @@ import { useState } from "react";
 
 const inter = Inter({ subsets: ['latin'] })
 
-const skills = ["Next.js", "AWS", "Docker", "PostgreSQL", "Kubernetes","Git"];
+const skills = [ "AWS", "Docker","Kubernetes","Git", "Github Actions", "Prometheus", "Grafana"];
 
 const projects = [
+  {
+    title: "CI CD Pipeline with Docker, Kubernetes, Prometheus and Grafana",
+    description: "I created a CI/CD pipeline with Docker, Kubernetes, Prometheus and Grafana ",
+    tags: ["Github Actions", "Docker", "Kubernetes","Prometheus" , "Grafana" 
+     ],
+    link: "https://github.com/OrionLynn19/restaurant-bon-appetit",
+    github: "https://github.com/OrionLynn19/restaurant-bon-appetit",
+  },
   {
     title: "Eleva Medical Clinic",
     description: "Build a cutting-edge medical aesthetics clinic website to enhance online presence and provide information about services.",
@@ -25,13 +33,7 @@ const projects = [
     link: "https://www.elevaclinic.com",
     github: "https://github.com/Sprouting-Tech/eleva-clinic",
   },
-  {
-    title: "Bon Appetit Restaurant",
-    description: "Design Menu DB Schema along with CRUD and develop a responsive restaurant website to showcase menu offerings and facilitate online reservations.",
-    tags: ["Supabase", "Framer-motion", "Next.js", ],
-    link: "https://github.com/OrionLynn19/restaurant-bon-appetit",
-    github: "https://github.com/OrionLynn19/restaurant-bon-appetit",
-  },
+  
   {
     title: "Ananya Hotel and Resort",
     description: "Develop responsive glassmorphism UI and implement Room API and database helper functions for a luxury hotel website.",
@@ -102,7 +104,7 @@ export default function Home() {
                   variants={itemVariants}
                 >
                   <Link 
-                    href="https://drive.google.com/uc?export=download&id=1JcXMJiyEG3nDvyxHZUmVx7k4nzuP5FX2"
+                    href="https://drive.google.com/uc?export=download&id=1GryUogDwCzuqwdj61P2kxH-e0zx4PJdw"
                     className="
                       flex items-center gap-2
                       bg-dark text-light
@@ -169,10 +171,7 @@ export default function Home() {
                 >
                   <h3 className="text-xl lg:text-2xl font-bold mb-3 lg:mb-4 text-dark">About Me</h3>
                   <p className="text-dark/90 leading-relaxed mb-4 lg:mb-6 text-sm lg:text-base">
-                    I&apos;m a backend developer with hands-on experience across full-stack development, strong theoretical knowledge on
-                    cloud infrastructure, and e-commerce platforms. Currently preparing for 
-                    <span className="font-bold"> SAP-C02</span> and 
-                    <span className="font-bold"> CKA</span> certifications.
+                   Junior Cloud‑focused  engineer experienced in AWS, Kubernetes, Docker, and CI/CD automation. I build scalable infrastructure, containerized environments, and secure backend systems using PostgreSQL, Linux, and GitHub Actions, with full‑stack capability in Next.js when needed
                   </p>
                   
                  

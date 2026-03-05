@@ -49,8 +49,8 @@ const Contact = () => {
                                 Let's Create Something Amazing!
                             </h3>
                             <p className="text-dark/75 font-medium text-base sm:text-lg leading-relaxed mb-4 sm:mb-6 text-left">
-                                I'm a passionate full-stack developer with expertise in modern web technologies. 
-                                Whether you have a project in mind or just want to connect, I'd love to hear from you.
+                                I’m a cloud‑focused  engineer who enjoys building scalable systems, automating workflows, and deploying modern applications.
+Whether you’re exploring a new project or just want to connect, feel free to reach out I’d be glad to hear from you.
                             </p>
                             <div className="space-y-3 sm:space-y-4">
                                 <div className="flex items-center space-x-2 sm:space-x-3">

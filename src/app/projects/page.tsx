@@ -7,6 +7,15 @@ import ProjectCard from '@/src/components/ProjectCard';
 // Project data
 const projects = [
     {
+        type: "CI/ CD Pipeline",
+        title: "Node JS app workflow ",
+        summary: "I created a CI/CD pipeline with Docker, Kubernetes, Prometheus and Grafana ",
+        img: "/images/ci cd .jpg",
+        link: "https://github.com/OrionLynn19/orionPL",
+        github: "https://github.com/OrionLynn19/orionPL",
+        featured: true,
+    },
+    {
         type: "Aesthetic Medical Clinic",
         title: "Eleva Clinic",
         summary: "Eleva Clinic is a cutting-edge medical aesthetics clinic. I took part in developing their website to enhance their online presence and provide information about their services.",
