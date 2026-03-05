@@ -96,7 +96,7 @@ export default function Home() {
                   className=" !text-center md:!text-left leading-tight "
                 />
                 <AnimatedText 
-                  text={`A Junior Full-Stack Developer, System Architect, and Tech\n-Enthusiast.`} 
+                  text={`A Junior Devops/Cloud Engineer, System Architect, and Tech\n-Enthusiast.`} 
                   className="!text-base md:!text-lg lg:!text-4xl leading-relaxed !text-center md:!text-left pl-0 md:pr-10 mt-4"
                 />
                 <motion.div 
